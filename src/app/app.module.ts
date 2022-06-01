@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { NeumorphyUIModule } from 'neumorphy-ui';
 import { NgxSplideModule } from 'ngx-splide';
 import { VinylComponent } from './vinyl/vinyl.component';
+import { NeumorphyUIModule } from 'neumorphy-ui';
 
 
 
@@ -15,8 +15,8 @@ import { VinylComponent } from './vinyl/vinyl.component';
   ],
   imports: [
     BrowserModule,
-    NeumorphyUIModule,
-    NgxSplideModule
+    NgxSplideModule,
+    NeumorphyUIModule
   ],
   providers: [],
   bootstrap: [AppComponent]
