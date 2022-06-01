@@ -42,5 +42,5 @@ testem.log
 Thumbs.db
 
 # Songs folder
-/back/songs/*
-/back/covers/*
+/src/assets/songs/*
+/src/assets/covers/*
