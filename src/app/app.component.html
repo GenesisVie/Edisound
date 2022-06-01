@@ -1,39 +1,24 @@
 <div class="app">
+  <nui-row id="jackets"></nui-row>
   <nui-main>
-    <nui-row id="jackets"></nui-row>
     <nui-row id="displayer">
       <nui-row id="vinyl">
         <app-vinyl [cover]=" music!=null ? 'url('+music.cover+')': 'white'"></app-vinyl>
-
-      </nui-row>
-      <nui-row id="playMenu" href="">
-        <nui-menu>
-          <nui-button label="backl"></nui-button>
-          <nui-button label="play"></nui-button>
-          <nui-button label="pause"></nui-button>
-          <nui-button label="fowrad"></nui-button>
-
-        </nui-menu>
+        <nui-slider></nui-slider>
       </nui-row>
     </nui-row>
   </nui-main>
-  <!-- <nui-main>
-    <nui-row>
-      <nui-slider label="Test Curve" rangeId="toto" class="curve-right"></nui-slider>
-    </nui-row>
-    <nui-row>
-      <nui-slider label="Test" rangeId="toto3" class="horizontal"></nui-slider>
-    </nui-row>
-    <nui-row>
-      <div style="width: 100%;">
+  <!-- <nui-menu id="playMenu">
+    <nui-button label="backl"></nui-button>
+    <nui-button label="play"></nui-button>
+    <nui-button label="pause"></nui-button>
+    <nui-button label="fowrad"></nui-button>
+  </nui-menu> -->
 
-        <nui-carousel [images]="[
+        <!-- <nui-carousel [images]="[
         {src:'https://miro.medium.com/max/1400/1*57iKUIZ1AuMc8YKdj3wpTQ.jpeg'},
         {src:'https://miro.medium.com/max/1400/1*57iKUIZ1AuMc8YKdj3wpTQ.jpeg'}
       ]"
     >
-    </nui-carousel>
-      </div>
-    </nui-row>
-  </nui-main> -->
+    </nui-carousel> -->
 </div>
