@@ -1,0 +1,15 @@
+nui-main{
+    max-width: 100vh;
+    #jackets{
+        min-height: 25vh;
+    }
+    #displayer{
+        min-height: 75vh;
+        #vinyl{
+            height: 80%;
+        }
+        #playMenu{
+            height: 20%;
+        }
+    }
+}
