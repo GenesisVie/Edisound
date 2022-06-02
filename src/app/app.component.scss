@@ -1,15 +1,16 @@
+#jackets{
+    background-color: aliceblue;
+    min-height: 25vh;
+}
 nui-main{
-    max-width: 100vh;
-    #jackets{
-        min-height: 25vh;
-    }
+    max-width: 100vw;
     #displayer{
-        min-height: 75vh;
-        #vinyl{
-            height: 80%;
+        padding-top: 2rem;
+        #author{
+            font-size: 0.4rem;
         }
-        #playMenu{
-            height: 20%;
+        #title{
+            font-size: 1rem;
         }
     }
 }
