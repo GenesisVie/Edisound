@@ -3,6 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {NgxSplideModule} from 'ngx-splide';
 import {NeumorphyUIModule} from 'neumorphy-ui';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import {AppComponent} from './app.component';
 import {VinylComponent} from './vinyl/vinyl.component';
@@ -26,6 +27,7 @@ import {TestsComponent} from "./tests/tests.component";
     BrowserModule,
     NgxSplideModule,
     NeumorphyUIModule,
+    FontAwesomeModule,
     AppRoutingModule
   ],
   providers: [],

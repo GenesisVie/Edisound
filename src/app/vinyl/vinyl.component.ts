@@ -1,5 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { RotationServiceService } from '../services/rotation-service.service';
 import "node_modules/zingtouch/dist/zingtouch.min.js";
+import { Subject } from 'rxjs';
 declare var ZingTouch: any;
 
 
@@ -13,14 +15,22 @@ export class VinylComponent implements OnInit {
   @Input() cover?:string;
   
   currentAngle = 0;
+  rotableStop = false;
 
   @ViewChild('wrapper') wrapper ?:ElementRef;
   @ViewChild('interaction') interaction ?:ElementRef;
   @ViewChild('rotable') rotable ?:ElementRef;
 
-  constructor() { }
+
+  constructor(public rService:RotationServiceService) {
+  }
 
   ngOnInit(): void {
+    this.rService.interval.subscribe(()=>{
+      // console.log(this.rService.isPlay.value , !this.rService.isBlocked.value)
+      if(this.rService.isPlay.value && !this.rService.isBlocked.value && !this.rotableStop)
+        this.rotate();
+    });
   }
 
   ngAfterViewInit(): void{
@@ -32,8 +42,15 @@ export class VinylComponent implements OnInit {
         this.rotable.nativeElement.style.transform = 'rotate(' + this.currentAngle + 'deg)';
     });
   }
-  changeCover(){
-
+  
+  rotate(){
+    this.currentAngle += 1,98;
+    if(this.rotable)
+      this.rotable.nativeElement.style.transform = 'rotate(' + this.currentAngle + 'deg)';
   }
 
+  onKey(event:any){
+    this.rService.isBlocked.next(event.type === "touchstart")
+    this.rotableStop = event.type === "touchstart"
+  }
 }

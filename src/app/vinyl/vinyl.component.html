@@ -1,6 +1,6 @@
 <div id="wrapper" #wrapper>
     <div id="rotate-container">
-        <div id="rotable" #rotable>
+        <div id="rotable" #rotable >
             <div id="inner-circle" [style.background]="this.cover">
             </div>
             
@@ -8,4 +8,4 @@
         </div>
     </div>
 </div>
-<div id="interaction" #interaction></div>
+<div id="interaction" #interaction (touchstart)="onKey($event)" (touchend)="onKey($event)"></div>

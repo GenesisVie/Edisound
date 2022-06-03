@@ -1,15 +1,13 @@
-@import "node_modules/neumorphy-ui/assets/scss/variables";
-@import "node_modules/neumorphy-ui/assets/scss/styles";
 
 :host {
   width: 100%;
+  height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0;
   padding: 0 0 3em 0;
   background: radial-gradient(circle at center top, #3c3837 0%, #2e2b2a 50%, #211f1e 85%);
-  height: -webkit-fill-available;
 }
 
 .modal-displayed {
