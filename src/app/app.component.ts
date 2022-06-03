@@ -1,69 +1,108 @@
-import { Component } from '@angular/core';
-import { RotationServiceService } from './services/rotation-service.service';
-
-import { Music } from './interface/music';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { faPause } from '@fortawesome/free-solid-svg-icons';
-import { faForward } from '@fortawesome/free-solid-svg-icons';
-import { faBackward } from '@fortawesome/free-solid-svg-icons';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  constructor(public rService:RotationServiceService){
 
+export class AppComponent implements OnInit {
+  errors = [
+    {
+      display: 'modal-bottom' as const,
+      active: false,
+      type: 'success' as const,
+    },
+    {
+      active: false,
+      display: 'modal' as const,
+      type: 'error' as const,
+      button1: {
+        label: 'OK',
+        active: true,
+        size: 'sm',
+        action: () => {
+          console.log('OK');
+        }
+      },
+      button2: {
+        label: 'OK',
+        active: true,
+        size: 'sm',
+        action: () => {
+          console.log('Annulé');
+        }
+      }
+    }
+  ]
+
+  getError() {
+    let err;
+    this.errors.forEach((e: any) => {
+      // @ts-ignore
+      if (e.active && e.display === 'modal') {
+        err = 'modal-displayed';
+      } else {
+        err = null;
+      }
+    })
+    return err;
   }
 
-  title = 'Edisound';
-  music:Music = {
-    title:"Money",
-    author:"Pink Floyd",
-    path:"assets/songs/Madison.mp3",
-    cover:"assets/covers/Madison.jpg"
+  clearError() {
+    this.errors.forEach((e: any) => {
+      !e.active
+    })
+  }
+
+  error1 = {
+    display: 'modal-bottom' as const,
+    active: false,
+    type: 'success' as const,
   };
 
-  faPlay = faPlay;
-  faPause = faPause;
-  faBackward = faBackward;
-  faForward = faForward;
-
-  activeBtn1:boolean = false;
-  activeBtn2:boolean = true;
-
-  pushPull(i:number){
-    if(i==1){
-      if(this.activeBtn1 == true){
-        this.activeBtn1 = false
-        this.activeBtn2 = true
-        
-        this.rService.isPlay.next(false);
-      }else{
-        this.activeBtn1 = true
-        this.activeBtn2 = false
-
-        this.rService.isPlay.next(true);
+  error2 = {
+    active: false,
+    display: 'modal' as const,
+    type: 'error' as const,
+    button1: {
+      label: 'OK',
+      active: true,
+      size: 'sm',
+      action: () => {
+        console.log('OK');
       }
-    }else{
-      if(this.activeBtn2 == true){
-        this.activeBtn1 = true
-        this.activeBtn2 = false
-
-        this.rService.isPlay.next(true);
-      }else{
-        this.activeBtn1 = false
-        this.activeBtn2 = true
-        
-        this.rService.isPlay.next(false);
+    },
+    button2: {
+      label: 'OK',
+      active: true,
+      size: 'sm',
+      action: () => {
+        console.log('Annulé');
       }
     }
   }
 
-  changeSong(i:number){
-
+  buttonPopup1 = {
+    'label': 'OK',
+    'active': true,
+    'size': 'sm',
+    'action': function () {
+      console.log('OK');
+    },
+  }
+  buttonPopup2 = {
+    'label': 'Annuler',
+    'active': true,
+    'size': 'sm',
+    'action': function () {
+      console.log('Annulé');
+    }
   }
 
-  
+  constructor() {
+  }
+
+  ngOnInit(): void {
+  }
 }

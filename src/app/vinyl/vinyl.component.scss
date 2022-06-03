@@ -1,77 +1,76 @@
+:host{
+  width: 100%;
+  position: relative;
+}
+#wrapper {
+  display: flex;
+  flex-direction: column;
+}
 
-  :host{
-    width: 100%;
-    position: relative;
+#rotate-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+#rotable {
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  width: 83vw;
+  height: 83vw;
+  border-radius: 50%;
+  background: url("/assets/vinyl.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transition: linear 0.1s transform;
+  &.rotableStop{
+    transition: unset;
   }
-  #wrapper {
-    display: flex;
-    flex-direction: column;
+
+  #inner-circle {
+      position: relative;
+      border-radius: 50%;
+      height:6rem;
+      width:6rem;
+      border-radius: 50%;
+      background-repeat: no-repeat !important;
+      background-position: center !important;
+      background-size: cover !important;
   }
   
-  #rotate-container{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    cursor: pointer;
-  }
-  
-  #rotable {
-    display: flex;  
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-    width: 83vw;
-    height: 83vw;
-    border-radius: 50%;
-    background: url("/assets/vinyl.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    transition: linear 0.1s transform;
-    &.rotableStop{
-      transition: unset;
-    }
-
-    #inner-circle {
-        position: relative;
-        border-radius: 50%;
-        height:6rem;
-        width:6rem;
-        border-radius: 50%;
-        background-repeat: no-repeat !important;
-        background-position: center !important;
-        background-size: cover !important;
-    }
-    
-    #double-inner {
-        position: absolute;
-        background:silver;
-        border-radius: 50%;
-        height:0.8rem;
-        width:0.8rem;
-        border-radius: 50%;
-    }
-
-    box-sizing: border-box;
-    border: 0.3rem solid #3c3837;
-    &::after {
+  #double-inner {
       position: absolute;
-      display: inline-block;
-      content: "";
-      width: 83vw;
-      height: 83vw;
-      border-radius: inherit;
-      border: 1rem solid #211f1e;
-    }
+      background:silver;
+      border-radius: 50%;
+      height:0.8rem;
+      width:0.8rem;
+      border-radius: 50%;
   }
-  
-  #interaction {
+
+  box-sizing: border-box;
+  border: 0.3rem solid #3c3837;
+  &::after {
     position: absolute;
-    left:-2rem;
-    top:-2rem;
-    width: 100vw;
-    height: 25rem;
-    z-index: 1000;
-    // background-color: rgba(255, 0, 0, 0.11);
+    display: inline-block;
+    content: "";
+    width: 91vw;
+    height: 91vw;
+    border-radius: inherit;
+    border: 1rem solid #211f1e;
   }
+}
+
+#interaction {
+  position: absolute;
+  left:-2rem;
+  top:-2rem;
+  width: 100vw;
+  height: 25rem;
+  z-index: 1000;
+  // background-color: rgba(255, 0, 0, 0.11);
+}
   

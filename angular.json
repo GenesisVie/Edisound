@@ -28,12 +28,18 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/neumorphy-ui/assets",
+                "output": "/assets/"
+              }
             ],
             "styles": [
               "src/styles.scss",
               "node_modules/@splidejs/splide/dist/css/splide.min.css",
-              "node_modules/@splidejs/splide/dist/css/themes/splide-default.min.css"
+              "node_modules/@splidejs/splide/dist/css/themes/splide-default.min.css",
+              "node_modules/neumorphy-ui/assets/scss/variables.scss"
             ],
             "preserveSymlinks": true,
             "scripts": [

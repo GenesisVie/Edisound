@@ -1,0 +1,37 @@
+<nui-row id="jackets"></nui-row>
+<nui-main>
+  <nui-row id="displayer">
+    <nui-row id="vinyl">
+      <app-vinyl [cover]=" music!=null ? 'url('+music.cover+')': 'white'" ></app-vinyl>
+      <nui-row class="content">
+        <div id="musicTitle">
+          <p id="author">{{music.author}}</p>
+          <p id="title">{{music.title}}</p>
+        </div>
+        <nui-row id="progressTrack">
+          <nui-slider [withTimeInfo]="true" [end]="'2:20'"></nui-slider>
+        </nui-row>
+      </nui-row>
+      <nui-menu [verticalCenter]="true">
+        <nui-icon-button size="md" (clic)="changeSong(-1)">
+          <fa-icon [icon]="faBackward"></fa-icon>
+        </nui-icon-button>
+        <nui-icon-button size="lg" [pushPull]="true" (clic)="pushPull(1)" [active]="activeBtn1">
+          <fa-icon [icon]="faPlay"></fa-icon>
+        </nui-icon-button>
+        <nui-icon-button size="lg" [pushPull]="true" (clic)="pushPull(2)" [active]="activeBtn2">
+          <fa-icon [icon]="faPause"></fa-icon>
+        </nui-icon-button>
+        <nui-icon-button size="md" (clic)="changeSong(1)">
+          <fa-icon [icon]="faForward"></fa-icon>
+        </nui-icon-button>
+      </nui-menu>
+    </nui-row>
+  </nui-row>
+</nui-main>
+  <!-- <nui-menu id="playMenu">
+    <nui-button label="backl"></nui-button>
+    <nui-button label="play"></nui-button>
+    <nui-button label="pause"></nui-button>
+    <nui-button label="fowrad"></nui-button>
+  </nui-menu> -->

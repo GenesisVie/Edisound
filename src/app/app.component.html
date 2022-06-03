@@ -1,46 +1,26 @@
-<div class="app">
-  <nui-row id="jackets"></nui-row>
-  <nui-main>
-    <nui-row id="displayer">
-      <nui-row id="vinyl">
-        <app-vinyl [cover]=" music!=null ? 'url('+music.cover+')': 'white'" ></app-vinyl>
-        <nui-row class="content">
-          <div id="musicTitle">
-            <nui-title [bold]="true" id="author">{{music.author}}</nui-title>
-            <nui-title [bold]="true" id="title">{{music.title}}</nui-title>
-          </div>
-          <nui-row id="progressTrack">
-            <nui-slider [withTimeInfo]="true" [end]="'2:20'"></nui-slider>
-          </nui-row>
-        </nui-row>
-        <nui-menu [verticalCenter]="true">
-          <nui-icon-button size="md" (clic)="changeSong(-1)">
-            <fa-icon [icon]="faBackward"></fa-icon>
-          </nui-icon-button>
-          <nui-icon-button size="lg" [pushPull]="true" (clic)="pushPull(1)" [active]="activeBtn1">
-            <fa-icon [icon]="faPlay"></fa-icon>
-          </nui-icon-button>
-          <nui-icon-button size="lg" [pushPull]="true" (clic)="pushPull(2)" [active]="activeBtn2">
-            <fa-icon [icon]="faPause"></fa-icon>
-          </nui-icon-button>
-          <nui-icon-button size="md" (clic)="changeSong(1)">
-            <fa-icon [icon]="faForward"></fa-icon>
-          </nui-icon-button>
-        </nui-menu>
-      </nui-row>
-    </nui-row>
-  </nui-main>
-  <!-- <nui-menu id="playMenu">
-    <nui-button label="backl"></nui-button>
-    <nui-button label="play"></nui-button>
-    <nui-button label="pause"></nui-button>
-    <nui-button label="fowrad"></nui-button>
-  </nui-menu> -->
+<nui-main [class]="getError()">
+  <header [style.margin]="'0.5em 0 0.3em'">
+    <nav>
+      <a [style.color]="'white'" [style.margin-right]="'2em'" routerLink="/">Home</a>
+      <a [style.color]="'white'" [style.margin-right]="'2em'" routerLink="/music">Music</a>
+      <a [style.color]="'white'" [style.margin-right]="'2em'" routerLink="/playlist">Playlist</a>
+      <a [style.color]="'white'" routerLink="/tests">Tests</a>
+    </nav>
+    <div style="display: flex;justify-content: center">
+      <nui-button [style.margin-right]="'1em'" [active]="true" size="sm" label="Erreur 1"
+                  (clic)="this.errors[1].active = true;">
+      </nui-button>
+      <nui-button [active]="true" size="sm" label="Erreur 2" (clic)="this.errors[0].active = true;">
+      </nui-button>
+    </div>
+  </header>
+  <router-outlet></router-outlet>
+</nui-main>
 
-    <!-- <nui-carousel [images]="[
-        {src:'https://miro.medium.com/max/1400/1*57iKUIZ1AuMc8YKdj3wpTQ.jpeg'},
-        {src:'https://miro.medium.com/max/1400/1*57iKUIZ1AuMc8YKdj3wpTQ.jpeg'}
-      ]"
-    >
-    </nui-carousel> -->
-</div>
+<nui-error txt="Information test" [type]="errors[0].type" [display]="errors[0].display"
+           *ngIf="errors[0].active" (close)="errors[0].active = false">
+</nui-error>
+<nui-error txt="Erreur 404 : Veuillez réessayer plus tard" type="error" display="modal" *ngIf="errors[1].active"
+           (close)="errors[1].active = false" [button1]="buttonPopup1" [button2]="buttonPopup2">
+</nui-error>
+

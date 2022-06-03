@@ -1,39 +1,16 @@
-.app{
-    #jackets{
-        background-color: aliceblue;
-        min-height: 25vh;
-    }
-    nui-main{
-        max-width: 100vw;
-        height: 75vh;
-        #displayer{
-            padding-top: 2rem;
-            .content{
-                padding-inline: 1rem;
-                margin-top: 1rem;
-                #musicTitle{
-                    width: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    line-height: 0;
-                    #author{
-                        font-size: 0.4rem;
-                    }
-                    #title{
-                        font-size: 0.8rem;
-                    }
-                }
-                #progressTrack{
-                    margin: 0.3rem 0rem 0rem;
-                }
-            }
-            nui-menu{
-                display: flex;
-                justify-content: center;
-                nui-row{
-                    align-items: center;
-                }
-            }
-        }
-    }
+
+:host {
+  width: 100%;
+  height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0 0 3em 0;
+  background: radial-gradient(circle at center top, #3c3837 0%, #2e2b2a 50%, #211f1e 85%);
+}
+
+.modal-displayed {
+  overflow: hidden;
+  filter: blur(3px) brightness(80%);
 }
