@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-html,body{
-    margin:0!important;
-    padding:0!important;
+@import "node_modules/neumorphy-ui/assets/scss/variables";
+@import "node_modules/neumorphy-ui/assets/scss/styles";
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
 }

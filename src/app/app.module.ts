@@ -1,24 +1,36 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {AppRoutingModule} from './app-routing.module';
+import {NgxSplideModule} from 'ngx-splide';
+import {NeumorphyUIModule} from 'neumorphy-ui';
 
-import { AppComponent } from './app.component';
-import { NgxSplideModule } from 'ngx-splide';
-import { VinylComponent } from './vinyl/vinyl.component';
-import { NeumorphyUIModule } from 'neumorphy-ui';
-
-
+import {AppComponent} from './app.component';
+import {VinylComponent} from './vinyl/vinyl.component';
+import {HomeComponent} from './home/home.component';
+import {PlaylistComponent} from './playlist/playlist.component';
+import {MusicComponent} from './music/music.component';
+import {PagenotfoundComponent} from './pagenotfound/pagenotfound.component';
+import {TestsComponent} from "./tests/tests.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     VinylComponent,
+    HomeComponent,
+    PlaylistComponent,
+    MusicComponent,
+    PagenotfoundComponent,
+    TestsComponent
   ],
   imports: [
     BrowserModule,
     NgxSplideModule,
-    NeumorphyUIModule
+    NeumorphyUIModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+}
