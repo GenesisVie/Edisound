@@ -5,8 +5,7 @@ import { AppComponent } from './app.component';
 import { NgxSplideModule } from 'ngx-splide';
 import { VinylComponent } from './vinyl/vinyl.component';
 import { NeumorphyUIModule } from 'neumorphy-ui';
-
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,8 @@ import { NeumorphyUIModule } from 'neumorphy-ui';
   imports: [
     BrowserModule,
     NgxSplideModule,
-    NeumorphyUIModule
+    NeumorphyUIModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

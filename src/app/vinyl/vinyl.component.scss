@@ -27,6 +27,10 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    transition: linear 0.1s transform;
+    &.rotableStop{
+      transition: unset;
+    }
 
     #inner-circle {
         position: relative;
