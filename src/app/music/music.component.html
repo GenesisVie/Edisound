@@ -1,1 +1,7 @@
-<p>music works!</p>
+<nui-list *ngFor="let music of musicList">
+  <nui-list-item>
+    <nui-card display="item" [title]="music.title" [subtitle]="music.subtitle" color="raisin" borderRadius="10" elevation="md"
+              padding="sm" width="20em" [buttonItem]="music.buttonItem" align="center" justify="left" sense="row"
+              [itemImage]="music.img">+</nui-card>
+  </nui-list-item>
+</nui-list>

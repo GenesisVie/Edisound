@@ -55,34 +55,6 @@ export class AppComponent implements OnInit {
     })
   }
 
-  error1 = {
-    display: 'modal-bottom' as const,
-    active: false,
-    type: 'success' as const,
-  };
-
-  error2 = {
-    active: false,
-    display: 'modal' as const,
-    type: 'error' as const,
-    button1: {
-      label: 'OK',
-      active: true,
-      size: 'sm',
-      action: () => {
-        console.log('OK');
-      }
-    },
-    button2: {
-      label: 'OK',
-      active: true,
-      size: 'sm',
-      action: () => {
-        console.log('Annulé');
-      }
-    }
-  }
-
   buttonPopup1 = {
     'label': 'OK',
     'active': true,
