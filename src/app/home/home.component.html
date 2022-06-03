@@ -1,0 +1,25 @@
+<nui-row id="jackets"></nui-row>
+<nui-row id="displayer">
+  <nui-row id="vinyl">
+    <app-vinyl [cover]=" music!=null ? 'url('+music.cover+')': 'white'"></app-vinyl>
+    <div id="musicTitle">
+      <nui-title [bold]="true" id="author">{{music.author}}</nui-title>
+      <nui-title [bold]="true" id="title">{{music.title}}</nui-title>
+    </div>
+    <nui-slider></nui-slider>
+  </nui-row>
+</nui-row>
+
+<!-- <nui-menu id="playMenu">
+  <nui-button label="backl"></nui-button>
+  <nui-button label="play"></nui-button>
+  <nui-button label="pause"></nui-button>
+  <nui-button label="fowrad"></nui-button>
+</nui-menu> -->
+
+<!-- <nui-carousel [images]="[
+    {src:'https://miro.medium.com/max/1400/1*57iKUIZ1AuMc8YKdj3wpTQ.jpeg'},
+    {src:'https://miro.medium.com/max/1400/1*57iKUIZ1AuMc8YKdj3wpTQ.jpeg'}
+  ]"
+>
+</nui-carousel> -->
