@@ -11,8 +11,9 @@ export class MusicComponent implements OnInit {
   musicList = [
     {
       title: 'Titre',
-      subtitle: 'Sous-titre',
-      img: "https://static.fnac-static.com/multimedia/Images/FR/NR/94/43/d7/14107540/1507-1/tsp20220322173128/Nostalgia.jpg",
+      author: 'Sous-titre',
+      cover: "https://static.fnac-static.com/multimedia/Images/FR/NR/94/43/d7/14107540/1507-1/tsp20220322173128/Nostalgia.jpg",
+      path: '',
       buttonItem: {
         'label': '+',
         'active': false,
@@ -24,8 +25,9 @@ export class MusicComponent implements OnInit {
     },
     {
       title: 'Titre',
-      subtitle: 'Sous-titre',
-      img: "https://static.fnac-static.com/multimedia/Images/FR/NR/94/43/d7/14107540/1507-1/tsp20220322173128/Nostalgia.jpg",
+      author: 'Sous-titre',
+      cover: "https://static.fnac-static.com/multimedia/Images/FR/NR/94/43/d7/14107540/1507-1/tsp20220322173128/Nostalgia.jpg",
+      path: '',
       buttonItem: {
         'label': '+',
         'active': false,
@@ -35,7 +37,15 @@ export class MusicComponent implements OnInit {
         }
       }
     }
-  ]
+  ];
+  buttonAction = {
+    'label': '+',
+    'active': false,
+    'size': 'sm',
+    'action': function () {
+      console.log(this);
+    }
+  }
 
   constructor(private http: HttpService) {
   }
@@ -43,10 +53,10 @@ export class MusicComponent implements OnInit {
   ngOnInit(): void {
     this.http.getSongs()
       .subscribe(
-        data => this.musics = data,
+        data => {
+          console.log(data);
+          this.musics = data;
+        },
         error => console.error('Error: ', error));
-
-    console.log(this.musics);
   }
-
 }
