@@ -1,7 +1,4 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
-import {NgxSplideModule} from 'ngx-splide';
 import {NeumorphyUIModule} from 'neumorphy-ui';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -12,6 +9,12 @@ import {PlaylistComponent} from './playlist/playlist.component';
 import {MusicComponent} from './music/music.component';
 import {PagenotfoundComponent} from './pagenotfound/pagenotfound.component';
 import {TestsComponent} from "./tests/tests.component";
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgxSplideModule} from 'ngx-splide';
+import {PlayerComponent} from './player/player.component';
+import {HttpClientModule} from "@angular/common/http";
+
 
 @NgModule({
   declarations: [
@@ -21,18 +24,19 @@ import {TestsComponent} from "./tests/tests.component";
     PlaylistComponent,
     MusicComponent,
     PagenotfoundComponent,
-    TestsComponent
+    TestsComponent,
+    PlayerComponent,
   ],
   imports: [
     BrowserModule,
     NgxSplideModule,
     NeumorphyUIModule,
     FontAwesomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NeumorphyUIModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-
-export class AppModule {
-}
+export class AppModule { }

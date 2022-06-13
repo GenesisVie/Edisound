@@ -1,0 +1,18 @@
+<div>
+<!--  <nui-row>-->
+<!--    <nui-title>{{currentSong.title}}</nui-title>-->
+<!--  </nui-row>-->
+<!--  <nui-row>-->
+<!--    <nui-text>{{currentSong.author}}</nui-text>-->
+<!--  </nui-row>-->
+  <nui-row>
+    <nui-button label="prev" (click)="previous()"></nui-button>
+    <nui-button label="play" (click)="pause()"></nui-button>
+    <nui-button label="next" (click)="next()"></nui-button>
+  </nui-row>
+  <nui-list>
+    <nui-list-item *ngFor="let song of songs" (click)="setAudio(song)">
+      <nui-card [color]="'raisin'" [title]="song.title" [description]="song.author"></nui-card>
+    </nui-list-item>
+  </nui-list>
+</div>

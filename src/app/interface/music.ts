@@ -1,6 +1,15 @@
 export interface Music {
-    title:string,
-    author:string,
-    path:string,
-    cover:string,
+  id: number,
+  title:string,
+  author:string,
+  path:string,
+  cover:string,
+}
+
+export interface WaitList {
+  pos: number,
+  title:string,
+  author:string,
+  path:string,
+  cover:string,
 }
