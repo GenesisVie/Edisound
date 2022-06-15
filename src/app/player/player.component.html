@@ -1,7 +1,8 @@
 <div>
   <nui-row id="displayer">
-    <nui-row id="vinyl" >
-      <app-vinyl [cover]=" currentSong!==null ? 'url('+currentSong.cover+')': 'white'" [rotate]="playing"></app-vinyl>
+    <nui-row id="vinyl">
+      <app-vinyl (blocked)="block($event)"
+                 [cover]=" currentSong!==null ? 'url('+currentSong.cover+')': 'white'" [rotate]="playing"></app-vinyl>
       <div *ngIf="currentSong !== null">
         <nui-row class="content">
           <div id="musicTitle">
@@ -10,8 +11,8 @@
           </div>
           <nui-row id="progressTrack">
             <nui-slider [withTimeInfo]="true" [actual]="timeElapsed" [end]="timeRemaining"></nui-slider>
-<!--            TODO: je veux ca en bas-la https://www.youtube.com/watch?v=cSqn-DVW7Oo-->
-<!--            <nui-slider [withTimeInfo]="true" [actual]="timeElapsed" [end]="timeRemaining" [min]="0" [max]="100" [value]="percentRemaining"></nui-slider>-->
+            <!--            TODO: je veux ca en bas-la https://www.youtube.com/watch?v=cSqn-DVW7Oo-->
+            <!--            <nui-slider [withTimeInfo]="true" [actual]="timeElapsed" [end]="timeRemaining" [min]="0" [max]="100" [value]="percentRemaining"></nui-slider>-->
           </nui-row>
         </nui-row>
       </div>
@@ -19,7 +20,7 @@
         <nui-icon-button size="md" (clic)="previous()">
           <fa-icon [icon]="faBackward"></fa-icon>
         </nui-icon-button>
-        <nui-icon-button  size="lg" [active]="playing" (clic)="playing ? pause() : play()" >
+        <nui-icon-button size="lg" [active]="playing" (clic)="playing ? pause() : play()">
           <fa-icon [icon]="faPlay" *ngIf="!playing"></fa-icon>
           <fa-icon [icon]="faPause" *ngIf="playing"></fa-icon>
         </nui-icon-button>

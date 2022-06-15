@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {Music, WaitList} from "../interface/music";
 import {AudioService} from "../services/audio.service";
 import {HttpService} from "../services/http.service";
@@ -8,6 +8,7 @@ import { faPause } from '@fortawesome/free-solid-svg-icons';
 import { faForward } from '@fortawesome/free-solid-svg-icons';
 import { faBackward } from '@fortawesome/free-solid-svg-icons';
 import {RotationServiceService} from "../services/rotation-service.service";
+import {VinylComponent} from "../vinyl/vinyl.component";
 
 @Component({
   selector: 'app-player',
@@ -42,14 +43,11 @@ export class PlayerComponent {
     })
     this.status = audioService.getPlayerStatus();
 
-    // if (rotationService.isBlocked && this.playing) {
-    //   this.pause()
-    // }else{
-    //   this.play()
-    // }
   }
 
-
+  test(test:boolean){
+    console.log(test)
+  }
   play() {
     this.playing = true;
     this.rotationService.isPlay.next(true)
@@ -61,6 +59,15 @@ export class PlayerComponent {
     this.rotationService.isPlay.next(false)
     this.audioService.pauseAudio()
   }
+
+  block(isBlocked: boolean) {
+    if (isBlocked && this.playing) {
+      this.audioService.pauseAudio()
+    }else if(this.playing){
+      this.audioService.playAudio()
+    }
+  }
+
 
   setAudio(song: Music): void{
     this.currentSong = song

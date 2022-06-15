@@ -60,7 +60,6 @@ import { Observable, BehaviorSubject } from 'rxjs';
 
   public setAudio(src: string): void {
     this.audio.src = src;
-    this.playAudio();
   }
 
   public playAudio(): void {
