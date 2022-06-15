@@ -12,6 +12,7 @@ import {PlaylistComponent} from './playlist/playlist.component';
 import {MusicComponent} from './music/music.component';
 import {PagenotfoundComponent} from './pagenotfound/pagenotfound.component';
 import {TestsComponent} from "./tests/tests.component";
+import { JacketComponent } from './jacket/jacket.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {TestsComponent} from "./tests/tests.component";
     PlaylistComponent,
     MusicComponent,
     PagenotfoundComponent,
-    TestsComponent
+    TestsComponent,
+    JacketComponent
   ],
   imports: [
     BrowserModule,
