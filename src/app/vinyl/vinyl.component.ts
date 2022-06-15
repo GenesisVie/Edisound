@@ -13,7 +13,8 @@ declare var ZingTouch: any;
 export class VinylComponent implements OnInit {
 
   @Input() cover?:string;
-  
+  @Input() rotate: boolean = false
+
   currentAngle = 0;
   rotableStop = false;
 
@@ -28,8 +29,8 @@ export class VinylComponent implements OnInit {
   ngOnInit(): void {
     this.rService.interval.subscribe(()=>{
       // console.log(this.rService.isPlay.value , !this.rService.isBlocked.value)
-      if(this.rService.isPlay.value && !this.rService.isBlocked.value && !this.rotableStop)
-        this.rotate();
+      if(this.rService.isPlay.value && !this.rService.isBlocked.value && !this.rotableStop && this.rotate)
+        this.makeRotate();
     });
   }
 
@@ -42,8 +43,8 @@ export class VinylComponent implements OnInit {
         this.rotable.nativeElement.style.transform = 'rotate(' + this.currentAngle + 'deg)';
     });
   }
-  
-  rotate(){
+
+  makeRotate(){
     this.currentAngle += 1,98;
     if(this.rotable)
       this.rotable.nativeElement.style.transform = 'rotate(' + this.currentAngle + 'deg)';

@@ -7,6 +7,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faPause } from '@fortawesome/free-solid-svg-icons';
 import { faForward } from '@fortawesome/free-solid-svg-icons';
 import { faBackward } from '@fortawesome/free-solid-svg-icons';
+import {RotationServiceService} from "../services/rotation-service.service";
 
 @Component({
   selector: 'app-player',
@@ -26,7 +27,7 @@ export class PlayerComponent {
   faBackward = faBackward;
   faForward = faForward;
 
-  constructor(private http: HttpService, private audioService: AudioService) {
+  constructor(private http: HttpService, private audioService: AudioService, private rotationService: RotationServiceService) {
     http.getSongs().subscribe(songs => {
       this.songs = songs;
     })
@@ -38,25 +39,33 @@ export class PlayerComponent {
     })
     audioService.percentElapsed.asObservable().subscribe(percent => {
       this.percentRemaining = percent
-      console.log(percent)
     })
     this.status = audioService.getPlayerStatus();
+
+    // if (rotationService.isBlocked && this.playing) {
+    //   this.pause()
+    // }else{
+    //   this.play()
+    // }
   }
 
 
   play() {
     this.playing = true;
+    this.rotationService.isPlay.next(true)
     this.audioService.playAudio()
   }
 
   pause() {
     this.playing = false;
+    this.rotationService.isPlay.next(false)
     this.audioService.pauseAudio()
   }
 
   setAudio(song: Music): void{
     this.currentSong = song
     this.playing = true;
+    this.rotationService.isPlay.next(true)
     this.audioService.setAudio(this.currentSong.path)
   }
 
