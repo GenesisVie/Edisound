@@ -1,6 +1,6 @@
 import {AppRoutingModule} from './app-routing.module';
-import {NeumorphyUIModule} from 'neumorphy-ui';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {NeumorphyUIModule} from "neumorphy-ui";
 
 import {AppComponent} from './app.component';
 import {VinylComponent} from './vinyl/vinyl.component';
