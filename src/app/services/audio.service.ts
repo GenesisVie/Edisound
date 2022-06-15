@@ -7,6 +7,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 
   public audio: HTMLAudioElement;
   public timeElapsed: BehaviorSubject<string> = new BehaviorSubject('00:00');
+  public duration: BehaviorSubject<string> = new BehaviorSubject('00:00');
   public timeRemaining: BehaviorSubject<string> = new BehaviorSubject('-00:00');
   public percentElapsed: BehaviorSubject<number> = new BehaviorSubject(0);
   public percentLoaded: BehaviorSubject<number> = new BehaviorSubject(0);

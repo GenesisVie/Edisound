@@ -1,25 +1,27 @@
 <div>
   <nui-row id="displayer">
-    <nui-row id="vinyl">
-      <app-vinyl [cover]=" currentSong!=null ? 'url('+currentSong.cover+')': 'white'" ></app-vinyl>
-      <nui-row class="content">
-        <div id="musicTitle">
-          <p id="author">{{currentSong.author}}</p>
-          <p id="title">{{currentSong.title}}</p>
-        </div>
-        <nui-row id="progressTrack">
-          <nui-slider [withTimeInfo]="true" [end]="'2:20'"></nui-slider>
+    <nui-row id="vinyl" >
+      <app-vinyl [cover]=" currentSong!==null ? 'url('+currentSong.cover+')': 'white'" ></app-vinyl>
+      <div *ngIf="currentSong !== null">
+        <nui-row class="content">
+          <div id="musicTitle">
+            <p id="author">{{currentSong.author}}</p>
+            <p id="title">{{currentSong.title}}</p>
+          </div>
+          <nui-row id="progressTrack">
+            <nui-slider [withTimeInfo]="true" [actual]="timeElapsed" [end]="timeRemaining"></nui-slider>
+<!--            TODO: je veux ca en bas-la https://www.youtube.com/watch?v=cSqn-DVW7Oo-->
+<!--            <nui-slider [withTimeInfo]="true" [actual]="timeElapsed" [end]="timeRemaining" [min]="0" [max]="100" [value]="percentRemaining"></nui-slider>-->
+          </nui-row>
         </nui-row>
-      </nui-row>
+      </div>
       <nui-menu [verticalCenter]="true">
         <nui-icon-button size="md" (clic)="previous()">
           <fa-icon [icon]="faBackward"></fa-icon>
         </nui-icon-button>
-        <nui-icon-button size="lg" [pushPull]="true" (clic)="play()" [active]="activeBtn1">
-          <fa-icon [icon]="faPlay"></fa-icon>
-        </nui-icon-button>
-        <nui-icon-button size="lg" [pushPull]="true" (clic)="pause()" [active]="activeBtn2">
-          <fa-icon [icon]="faPause"></fa-icon>
+        <nui-icon-button  size="lg" [active]="playing" (clic)="playing ? pause() : play()" >
+          <fa-icon [icon]="faPlay" *ngIf="!playing"></fa-icon>
+          <fa-icon [icon]="faPause" *ngIf="playing"></fa-icon>
         </nui-icon-button>
         <nui-icon-button size="md" (clic)="next()">
           <fa-icon [icon]="faForward"></fa-icon>
