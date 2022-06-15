@@ -45,9 +45,6 @@ export class PlayerComponent {
 
   }
 
-  test(test:boolean){
-    console.log(test)
-  }
   play() {
     this.playing = true;
     this.rotationService.isPlay.next(true)
