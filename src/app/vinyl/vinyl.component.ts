@@ -1,7 +1,8 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { RotationServiceService } from '../services/rotation-service.service';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {RotationServiceService} from '../services/rotation-service.service';
 import "node_modules/zingtouch/dist/zingtouch.min.js";
-import { Subject } from 'rxjs';
+import {Subject} from 'rxjs';
+
 declare var ZingTouch: any;
 
 
@@ -12,45 +13,48 @@ declare var ZingTouch: any;
 })
 export class VinylComponent implements OnInit {
 
-  @Input() cover?:string;
+  @Input() cover?: string;
   @Input() rotate: boolean = false
+  @Output() blocked: EventEmitter<boolean> = new EventEmitter<boolean>()
 
   currentAngle = 0;
   rotableStop = false;
 
-  @ViewChild('wrapper') wrapper ?:ElementRef;
-  @ViewChild('interaction') interaction ?:ElementRef;
-  @ViewChild('rotable') rotable ?:ElementRef;
+  @ViewChild('wrapper') wrapper ?: ElementRef;
+  @ViewChild('interaction') interaction ?: ElementRef;
+  @ViewChild('rotable') rotable ?: ElementRef;
 
 
-  constructor(public rService:RotationServiceService) {
+  constructor(public rService: RotationServiceService) {
   }
 
   ngOnInit(): void {
-    this.rService.interval.subscribe(()=>{
+    this.rService.interval.subscribe(() => {
       // console.log(this.rService.isPlay.value , !this.rService.isBlocked.value)
-      if(this.rService.isPlay.value && !this.rService.isBlocked.value && !this.rotableStop && this.rotate)
+      if (this.rService.isPlay.value && !this.rService.isBlocked.value && !this.rotableStop && this.rotate){
         this.makeRotate();
+      }
+      this.blocked.emit(this.rService.isBlocked.value)
     });
   }
 
-  ngAfterViewInit(): void{
+  ngAfterViewInit(): void {
     let region = new ZingTouch.Region(this.interaction?.nativeElement);
 
     region.bind(this.interaction?.nativeElement, 'rotate', (e: any) => {
       this.currentAngle += e.detail.distanceFromLast;
-      if(this.rotable)
+      if (this.rotable)
         this.rotable.nativeElement.style.transform = 'rotate(' + this.currentAngle + 'deg)';
     });
   }
 
-  makeRotate(){
-    this.currentAngle += 1,98;
-    if(this.rotable)
+  makeRotate() {
+    this.currentAngle += 1, 98;
+    if (this.rotable)
       this.rotable.nativeElement.style.transform = 'rotate(' + this.currentAngle + 'deg)';
   }
 
-  onKey(event:any){
+  onKey(event: any) {
     this.rService.isBlocked.next(event.type === "touchstart")
     this.rotableStop = event.type === "touchstart"
   }
