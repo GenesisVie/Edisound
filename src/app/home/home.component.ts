@@ -12,7 +12,7 @@ import { Music } from '../interface/music';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public rService:RotationServiceService){
+  constructor(){
 
   }
 

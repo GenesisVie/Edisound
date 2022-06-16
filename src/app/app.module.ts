@@ -15,6 +15,7 @@ import {NgxSplideModule} from 'ngx-splide';
 import {PlayerComponent} from './player/player.component';
 import {HttpClientModule} from "@angular/common/http";
 
+import { JacketComponent } from './jacket/jacket.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {HttpClientModule} from "@angular/common/http";
     PagenotfoundComponent,
     TestsComponent,
     PlayerComponent,
+    JacketComponent
   ],
   imports: [
     BrowserModule,

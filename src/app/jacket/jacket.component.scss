@@ -1,0 +1,16 @@
+#jackets{
+    position: relative;
+    &::before{
+        position: absolute;
+        top:0;
+        left: 0;
+        content:"";
+        height: 70%;
+        width: 100%;
+        background: linear-gradient(0deg, rgba(15,15,15,1) 0%, rgba(36,36,36,1) 80%);
+    }
+    background-color: #1c1d1e;
+    height: 25vh;
+    width: 100vw;
+
+}

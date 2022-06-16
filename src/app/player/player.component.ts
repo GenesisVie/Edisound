@@ -1,7 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
-import {Music, WaitList} from "../interface/music";
+import {Music} from "../interface/music";
 import {AudioService} from "../services/audio.service";
-import {HttpService} from "../services/http.service";
+import {WaitingListService} from "../services/waiting-list.service";
 import {Observable} from "rxjs";
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faPause } from '@fortawesome/free-solid-svg-icons';
@@ -28,11 +28,13 @@ export class PlayerComponent {
   faBackward = faBackward;
   faForward = faForward;
 
-  constructor(private http: HttpService, private audioService: AudioService, private rotationService: RotationServiceService) {
-    http.getSongs().subscribe(songs => {
+  constructor(private wListService: WaitingListService, private audioService: AudioService, private rotationService: RotationServiceService) {
+
+    this.wListService.wList.subscribe(songs => {
       this.songs = songs;
-    })
-     audioService.timeElapsed.asObservable().subscribe(time => {
+    });
+    
+    audioService.timeElapsed.asObservable().subscribe(time => {
        this.timeElapsed = time
     })
     audioService.timeRemaining.asObservable().subscribe(time => {
@@ -42,7 +44,7 @@ export class PlayerComponent {
       this.percentRemaining = percent
     })
     this.status = audioService.getPlayerStatus();
-
+    
   }
 
   play() {

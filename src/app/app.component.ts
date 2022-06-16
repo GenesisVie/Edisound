@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { WaitingListService } from './services/waiting-list.service';
 
 @Component({
   selector: 'app-root',
@@ -100,7 +101,8 @@ export class AppComponent implements OnInit {
     }
   }
 
-  constructor() {
+  constructor(private wList:WaitingListService) {
+    this.wList.fullWaitinglist()
   }
 
   ngOnInit(): void {
