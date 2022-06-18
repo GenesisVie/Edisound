@@ -1,7 +1,7 @@
   <nui-row id="displayer">
     <nui-row id="vinyl">
       <app-vinyl (blocked)="block($event)"
-                 [cover]=" currentSong!==null ? 'url('+currentSong.cover+')': 'white'" [rotate]="playing"></app-vinyl>
+                 [cover]=" currentSong!==null ? 'url('+currentSong.cover+')': 'white'" ></app-vinyl>
       <div *ngIf="currentSong !== null">
         <nui-row class="content">
           <div id="musicTitle">

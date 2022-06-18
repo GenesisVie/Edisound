@@ -1,7 +1,7 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {RotationServiceService} from '../services/rotation-service.service';
 import "node_modules/zingtouch/dist/zingtouch.min.js";
-import {Subject} from 'rxjs';
+import {AudioService} from "../services/audio.service";
 
 declare var ZingTouch: any;
 
@@ -14,27 +14,35 @@ declare var ZingTouch: any;
 export class VinylComponent implements OnInit {
 
   @Input() cover?: string;
-  @Input() rotate: boolean = false
   @Output() blocked: EventEmitter<boolean> = new EventEmitter<boolean>()
 
   currentAngle = 0;
   rotableStop = false;
+  currentTime = 0;
+  playing = false;
 
   @ViewChild('wrapper') wrapper ?: ElementRef;
   @ViewChild('interaction') interaction ?: ElementRef;
   @ViewChild('rotable') rotable ?: ElementRef;
 
 
-  constructor(public rService: RotationServiceService) {
+  constructor(public rService: RotationServiceService, private audioService: AudioService) {
+    this.audioService.getCurrentTime().subscribe(ct => {
+      this.currentTime = ct;
+    })
+    audioService.getPlayerStatus().subscribe(event => {
+        this.playing = event.toString() === "playing"
+      }
+    )
   }
 
   ngOnInit(): void {
-    this.rService.interval.subscribe(() => {
+    this.audioService.currentTime.subscribe(() => {
       // console.log(this.rService.isPlay.value , !this.rService.isBlocked.value)
-      if (this.rService.isPlay.value && !this.rService.isBlocked.value && !this.rotableStop && this.rotate){
-        this.makeRotate();
-      }
-      this.blocked.emit(this.rService.isBlocked.value)
+        if (this.rService.isPlay.value && !this.rService.isBlocked.value && !this.rotableStop && this.playing) {
+          this.makeRotate();
+        }
+        this.blocked.emit(this.rService.isBlocked.value)
     });
   }
 
@@ -45,11 +53,12 @@ export class VinylComponent implements OnInit {
       this.currentAngle += e.detail.distanceFromLast;
       if (this.rotable)
         this.rotable.nativeElement.style.transform = 'rotate(' + this.currentAngle + 'deg)';
+        this.audioService.seekAudio(this.currentAngle/178)
     });
   }
 
   makeRotate() {
-    this.currentAngle += 1, 98;
+    this.currentAngle = this.currentTime * 178
     if (this.rotable)
       this.rotable.nativeElement.style.transform = 'rotate(' + this.currentAngle + 'deg)';
   }
