@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageInterface } from 'neumorphy-ui';
-import { timeout } from 'rxjs';
 import { WaitingListService } from '../services/waiting-list.service';
 
 @Component({
@@ -19,14 +18,12 @@ export class JacketComponent implements OnInit {
             src: element.path
           }
         )
-        
-    console.log(this.jacketPath)
+
       });
     });
    }
-  
+
   ngOnInit(): void {
-    console.log(this.jacketPath)
   }
 
 }

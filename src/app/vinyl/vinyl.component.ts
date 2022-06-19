@@ -52,7 +52,7 @@ export class VinylComponent implements OnInit {
       if (this.rotable)
         this.rotable.nativeElement.style.transform = 'rotate(' + this.currentAngle + 'deg)';
         this.audioService.seekAudio(this.currentAngle/178)
-    });
+    }, {passive: false});
   }
 
   makeRotate() {
