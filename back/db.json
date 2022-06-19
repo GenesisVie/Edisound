@@ -116,7 +116,8 @@
       "id": 17,
       "title": "Philly flingo",
       "author": "Alpha Wann",
-      "path": "assets/songs/philly-flingo-alpha-wann.mp3"
+      "path": "assets/songs/philly-flingo-alpha-wann.mp3",
+      "cover":  "assets/covers/alpha.jpg"
     },
     {
       "id": 18,
