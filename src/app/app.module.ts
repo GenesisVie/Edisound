@@ -1,9 +1,6 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
-import {NgxSplideModule} from 'ngx-splide';
-import {NeumorphyUIModule} from 'neumorphy-ui';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {NeumorphyUIModule} from "neumorphy-ui";
 
 import {AppComponent} from './app.component';
 import {VinylComponent} from './vinyl/vinyl.component';
@@ -12,6 +9,12 @@ import {PlaylistComponent} from './playlist/playlist.component';
 import {MusicComponent} from './music/music.component';
 import {PagenotfoundComponent} from './pagenotfound/pagenotfound.component';
 import {TestsComponent} from "./tests/tests.component";
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgxSplideModule} from 'ngx-splide';
+import {PlayerComponent} from './player/player.component';
+import {HttpClientModule} from "@angular/common/http";
+
 import { JacketComponent } from './jacket/jacket.component';
 
 @NgModule({
@@ -23,6 +26,7 @@ import { JacketComponent } from './jacket/jacket.component';
     MusicComponent,
     PagenotfoundComponent,
     TestsComponent,
+    PlayerComponent,
     JacketComponent
   ],
   imports: [
@@ -30,11 +34,11 @@ import { JacketComponent } from './jacket/jacket.component';
     NgxSplideModule,
     NeumorphyUIModule,
     FontAwesomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NeumorphyUIModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-
-export class AppModule {
-}
+export class AppModule { }

@@ -7,7 +7,7 @@ import { BehaviorSubject, interval } from 'rxjs';
 
 export class RotationServiceService {
 
-  interval = interval(10);
+  interval = interval(1);
   public isPlay = new BehaviorSubject<boolean>(false);
   public isBlocked = new BehaviorSubject<boolean>(false);
 
