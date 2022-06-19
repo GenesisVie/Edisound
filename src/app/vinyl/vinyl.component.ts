@@ -14,7 +14,6 @@ declare var ZingTouch: any;
 export class VinylComponent implements OnInit {
 
   @Input() cover?: string;
-  @Output() blocked: EventEmitter<boolean> = new EventEmitter<boolean>()
 
   currentAngle = 0;
   rotableStop = false;
@@ -42,7 +41,6 @@ export class VinylComponent implements OnInit {
         if (this.rService.isPlay.value && !this.rService.isBlocked.value && !this.rotableStop && this.playing) {
           this.makeRotate();
         }
-        this.blocked.emit(this.rService.isBlocked.value)
     });
   }
 

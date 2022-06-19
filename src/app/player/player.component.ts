@@ -33,7 +33,7 @@ export class PlayerComponent {
     this.wListService.wList.subscribe(songs => {
       this.songs = songs;
     });
-    
+
     audioService.timeElapsed.asObservable().subscribe(time => {
        this.timeElapsed = time
     })
@@ -44,7 +44,7 @@ export class PlayerComponent {
       this.percentRemaining = percent
     })
     this.status = audioService.getPlayerStatus();
-    
+
   }
 
   play() {
@@ -58,15 +58,6 @@ export class PlayerComponent {
     this.rotationService.isPlay.next(false)
     this.audioService.pauseAudio()
   }
-
-  block(isBlocked: boolean) {
-    if (isBlocked && this.playing) {
-      this.audioService.pauseAudio()
-    }else if(this.playing){
-      this.audioService.playAudio()
-    }
-  }
-
 
   setAudio(song: Music): void{
     this.currentSong = song
