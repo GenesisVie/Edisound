@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RotationServiceService } from '../services/rotation-service.service';
+import { RotationServiceService } from '../../services/rotation-service.service';
 
-import { Music } from '../interface/music';
+import { Music } from '../../interface/music';
 
 
 

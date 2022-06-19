@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
-import {HomeComponent} from "./home/home.component";
+import {HomeComponent} from "./pages/home/home.component";
 import {MusicComponent} from "./music/music.component";
-import {PlaylistComponent} from "./playlist/playlist.component";
-import {PagenotfoundComponent} from "./pagenotfound/pagenotfound.component";
-import {TestsComponent} from "./tests/tests.component";
+import {PlaylistComponent} from "./pages/playlist/playlist.component";
+import {PagenotfoundComponent} from "./pages/pagenotfound/pagenotfound.component";
+import {TestsComponent} from "./pages/tests/tests.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent,},

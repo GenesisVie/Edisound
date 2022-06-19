@@ -1,14 +1,14 @@
 import {Component, ViewChild} from '@angular/core';
-import {Music} from "../interface/music";
-import {AudioService} from "../services/audio.service";
-import {WaitingListService} from "../services/waiting-list.service";
+import {Music} from "../../interface/music";
+import {AudioService} from "../../services/audio.service";
+import {WaitingListService} from "../../services/waiting-list.service";
 import {Observable} from "rxjs";
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faPause } from '@fortawesome/free-solid-svg-icons';
 import { faForward } from '@fortawesome/free-solid-svg-icons';
 import { faBackward } from '@fortawesome/free-solid-svg-icons';
-import {RotationServiceService} from "../services/rotation-service.service";
-import {VinylComponent} from "../vinyl/vinyl.component";
+import {RotationServiceService} from "../../services/rotation-service.service";
+import {VinylComponent} from "../../components/vinyl/vinyl.component";
 
 @Component({
   selector: 'app-player',

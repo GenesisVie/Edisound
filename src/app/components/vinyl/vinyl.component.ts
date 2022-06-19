@@ -1,7 +1,7 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {RotationServiceService} from '../services/rotation-service.service';
+import {RotationServiceService} from '../../services/rotation-service.service';
 import "node_modules/zingtouch/dist/zingtouch.min.js";
-import {AudioService} from "../services/audio.service";
+import {AudioService} from "../../services/audio.service";
 
 declare var ZingTouch: any;
 
