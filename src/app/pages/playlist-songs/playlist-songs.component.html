@@ -1,0 +1,17 @@
+<app-back></app-back>
+<nui-row>
+  <nui-title>{{playlistName}}</nui-title>
+  <nui-row>
+    <a [routerLink]="['/songs', playlistId]">
+      <nui-button [label]="'Ajouter une musique'"></nui-button>
+    </a>
+  </nui-row>
+  <nui-list>
+    <nui-list-item *ngFor="let song of songs">
+      <nui-card display="item" [title]="song.title" [subtitle]="song.author"  color="raisin" borderRadius="10" elevation="md"
+                padding="sm" width="20em"  align="center" justify="left" sense="row"
+                [itemImage]="song.cover">
+      </nui-card>
+    </nui-list-item>
+  </nui-list>
+</nui-row>

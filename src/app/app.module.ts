@@ -16,6 +16,10 @@ import {PlayerComponent} from './pages/player/player.component';
 import {HttpClientModule} from "@angular/common/http";
 
 import { JacketComponent } from './components/jacket/jacket.component';
+import { PlaylistItemComponent } from './components/playlist-item/playlist-item.component';
+import { PlaylistSongsComponent } from './pages/playlist-songs/playlist-songs.component';
+import { ListSongComponent } from './pages/list-song/list-song.component';
+import { BackComponent } from './components/back/back.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { JacketComponent } from './components/jacket/jacket.component';
     PagenotfoundComponent,
     TestsComponent,
     PlayerComponent,
-    JacketComponent
+    JacketComponent,
+    PlaylistItemComponent,
+    PlaylistSongsComponent,
+    ListSongComponent,
+    BackComponent
   ],
   imports: [
     BrowserModule,

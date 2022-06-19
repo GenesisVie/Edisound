@@ -1,0 +1,12 @@
+<app-back></app-back>
+<nui-row id="displayer">
+  <nui-row>
+    <nui-title>Playlists</nui-title>
+  </nui-row>
+
+  <nui-list>
+    <nui-list-item>
+      <app-playlist-item *ngFor="let playlist of playlists" [playlist]="playlist" ></app-playlist-item>
+    </nui-list-item>
+  </nui-list>
+</nui-row>

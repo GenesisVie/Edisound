@@ -101,8 +101,8 @@ export class AppComponent implements OnInit {
     }
   }
 
-  constructor(private wList:WaitingListService) {
-    this.wList.fullWaitinglist()
+  constructor(){
+
   }
 
   ngOnInit(): void {

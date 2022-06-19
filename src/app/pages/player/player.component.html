@@ -29,11 +29,7 @@
       </nui-menu>
     </nui-row>
   </nui-row>
-  <nui-list>
-    <nui-list-item *ngFor="let song of songs" (click)="setAudio(song)">
-      <nui-card [color]="'raisin'" [title]="song.title" [description]="song.author"></nui-card>
-    </nui-list-item>
-  </nui-list>
+
 <!-- <nui-row id="displayer">
   <nui-row id="vinyl">
     <app-vinyl [cover]=" music!=null ? 'url('+music.cover+')': 'white'" ></app-vinyl>

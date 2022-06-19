@@ -24,11 +24,15 @@ export class HttpService {
     return this.http.get<Playlist[]>(`${this.url}/playlist`)
   }
 
-  getPlaylistById(id: number) {
-    return this.http.get(`${this.url}/playlist/${id}`)
+  getPlaylistById(id: string) {
+    return this.http.get<Playlist>(`${this.url}/playlist/${id}`)
   }
 
-  putSongPlaylist(idPlaylist: number, songsId: number[]) {
-    return this.http.post(`${this.url}/playlist/${idPlaylist}`, {"song": [songsId]})
+  putSongPlaylist(playlist: Playlist, songs: Music[]) {
+    return this.http.put<Playlist>(`${this.url}/playlist/${playlist.id}`, {
+      "id": playlist.id,
+      "name": playlist.name,
+      "songs": songs
+    })
   }
 }

@@ -32,6 +32,7 @@ export class PlayerComponent {
 
     this.wListService.wList.subscribe(songs => {
       this.songs = songs;
+      console.log(songs)
     });
 
     audioService.timeElapsed.asObservable().subscribe(time => {
@@ -48,6 +49,9 @@ export class PlayerComponent {
   }
 
   play() {
+    if (!this.playing && this.songs.length > 0) {
+      this.setAudio(this.songs[0])
+    }
     this.playing = true;
     this.rotationService.isPlay.next(true)
     this.audioService.playAudio()

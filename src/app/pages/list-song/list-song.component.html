@@ -1,0 +1,7 @@
+<nui-list>
+  <app-back></app-back>
+  <nui-list-item *ngFor="let song of songs">
+    <nui-card [color]="'raisin'" [title]="song.title" [description]="song.author" (click)="putSongInPlaylist(song)">
+    </nui-card>
+  </nui-list-item>
+</nui-list>

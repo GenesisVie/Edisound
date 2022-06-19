@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Music } from '../interface/music';
 import {HttpService} from "./http.service";
+import {Playlist} from "../interface/playlist";
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,14 @@ export class WaitingListService {
   constructor(private http: HttpService){
   }
 
-  public fullWaitinglist() {
-    this.http.getSongs().subscribe(songs => {
-      this.wList.next(songs);
-    })
+  public setWaitingList(playlist: Playlist|null) {
+    if (playlist === null) {
+      this.http.getSongs().subscribe(songs => {
+        this.wList.next(songs);
+      })
+    }else{
+      this.wList.next([]);
+      this.wList.next(playlist.songs);
+    }
   }
 }
