@@ -117,7 +117,7 @@
       "title": "Philly flingo",
       "author": "Alpha Wann",
       "path": "assets/songs/philly-flingo-alpha-wann.mp3",
-      "cover": "assets/covers/alpha.jpg"
+      "cover":  "assets/covers/alpha.jpg"
     },
     {
       "id": 18,
@@ -143,13 +143,15 @@
   ],
   "playlist": [
     {
-      "song": [
+      "id": 1,
+      "name": "don dada playlist",
+      "songs": [
         {
-          "id": 6,
-          "title": "Drill Prod 3",
-          "author": "Prod. xDay",
-          "path": "assets/songs/prod-tas-cru-ct-flem3.mp3",
-          "cover": "assets/covers/prodxday.jpg"
+          "id": 17,
+          "title": "Philly flingo",
+          "author": "Alpha Wann",
+          "path": "assets/songs/philly-flingo-alpha-wann.mp3",
+          "cover":  "assets/covers/alpha.jpg"
         }
       ]
     }
