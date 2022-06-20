@@ -20,6 +20,8 @@ import { PlaylistItemComponent } from './components/playlist-item/playlist-item.
 import { PlaylistSongsComponent } from './pages/playlist-songs/playlist-songs.component';
 import { ListSongComponent } from './pages/list-song/list-song.component';
 import { BackComponent } from './components/back/back.component';
+import { PlaylistCreateComponent } from './components/playlist-create/playlist-create.component';
+import {ReactiveFormsModule} from "@angular/forms";
 import { SongItemAddComponent } from './components/song-item-add/song-item-add.component';
 
 @NgModule({
@@ -37,6 +39,7 @@ import { SongItemAddComponent } from './components/song-item-add/song-item-add.c
     PlaylistSongsComponent,
     ListSongComponent,
     BackComponent,
+    PlaylistCreateComponent,
     SongItemAddComponent
   ],
   imports: [
@@ -47,6 +50,7 @@ import { SongItemAddComponent } from './components/song-item-add/song-item-add.c
     AppRoutingModule,
     NeumorphyUIModule,
     HttpClientModule,
+    ReactiveFormsModule,
     HammerModule
   ],
   providers: [],

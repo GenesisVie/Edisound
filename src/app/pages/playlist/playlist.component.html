@@ -1,12 +1,16 @@
 <app-back></app-back>
 <nui-row id="displayer">
-  <nui-row>
+  <nui-row class="d-flex justify-content-center">
     <nui-title>Playlists</nui-title>
   </nui-row>
-
-  <nui-list>
-    <nui-list-item>
-      <app-playlist-item *ngFor="let playlist of playlists" [playlist]="playlist" ></app-playlist-item>
-    </nui-list-item>
-  </nui-list>
+  <nui-row class="d-flex justify-content-center">
+    <app-playlist-create (callback)="reloadData()"></app-playlist-create>
+  </nui-row>
+  <nui-row class="d-flex justify-content-center">
+    <nui-list>
+      <nui-list-item>
+        <app-playlist-item *ngFor="let playlist of playlists" [playlist]="playlist"></app-playlist-item>
+      </nui-list-item>
+    </nui-list>
+  </nui-row>
 </nui-row>
