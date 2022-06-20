@@ -33,11 +33,5 @@ export class ListSongComponent implements OnInit {
     })
   }
 
-  putSongInPlaylist(song: Music) {
-    this.playlistSongs.push(song)
-    this.httpService.putSongPlaylist(this.playlist, this.playlistSongs).subscribe(() => {
-    })
-  }
-
 
 }

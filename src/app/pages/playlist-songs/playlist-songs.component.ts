@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {HttpService} from "../../services/http.service";
 import {Playlist} from "../../interface/playlist";
 import {Location} from "@angular/common";
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-playlist-songs',
@@ -12,6 +13,7 @@ import {Location} from "@angular/common";
 })
 export class PlaylistSongsComponent implements OnInit {
 
+  faPlus = faPlus
   playlistId: string = ""
   playlistName: string = ""
   @Input() songs : Music[] = []

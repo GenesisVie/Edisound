@@ -13,3 +13,12 @@ export interface WaitList {
   path:string,
   cover:string,
 }
+
+export interface MusicItemPlaylist {
+  id: number,
+  title:string,
+  author:string,
+  path:string,
+  cover:string,
+  alreadyInPlaylist: boolean
+}
