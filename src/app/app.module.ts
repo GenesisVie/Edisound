@@ -1,5 +1,5 @@
 import {AppRoutingModule} from './app-routing.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {NeumorphyUIModule} from "neumorphy-ui";
 
 import {AppComponent} from './app.component';
@@ -15,14 +15,14 @@ import {NgxSplideModule} from 'ngx-splide';
 import {PlayerComponent} from './pages/player/player.component';
 import {HttpClientModule} from "@angular/common/http";
 
-import { JacketComponent } from './components/jacket/jacket.component';
-import { PlaylistItemComponent } from './components/playlist-item/playlist-item.component';
-import { PlaylistSongsComponent } from './pages/playlist-songs/playlist-songs.component';
-import { ListSongComponent } from './pages/list-song/list-song.component';
-import { BackComponent } from './components/back/back.component';
-import { PlaylistCreateComponent } from './components/playlist-create/playlist-create.component';
+import {JacketComponent} from './components/jacket/jacket.component';
+import {PlaylistItemComponent} from './components/playlist-item/playlist-item.component';
+import {PlaylistSongsComponent} from './pages/playlist-songs/playlist-songs.component';
+import {ListSongComponent} from './pages/list-song/list-song.component';
+import {BackComponent} from './components/back/back.component';
+import {PlaylistCreateComponent} from './components/playlist-create/playlist-create.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import { SongItemAddComponent } from './components/song-item-add/song-item-add.component';
+import {SongItemAddComponent} from './components/song-item-add/song-item-add.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +48,6 @@ import { SongItemAddComponent } from './components/song-item-add/song-item-add.c
     NeumorphyUIModule,
     FontAwesomeModule,
     AppRoutingModule,
-    NeumorphyUIModule,
     HttpClientModule,
     ReactiveFormsModule,
     HammerModule
@@ -56,4 +55,5 @@ import { SongItemAddComponent } from './components/song-item-add/song-item-add.c
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

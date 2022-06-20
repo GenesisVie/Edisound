@@ -1,6 +1,23 @@
-
-<router-outlet></router-outlet>
-
+<div [class]="getError()">
+  <!--<nui-button [style.margin-right]="'1em'" [active]="true" size="sm" label="Erreur 1"
+              (clic)="this.errors[1].active = true;">
+  </nui-button>
+  <nui-button [active]="true" size="sm" label="Erreur 2" (clic)="this.errors[0].active = true;">
+  </nui-button>-->
+  <router-outlet></router-outlet>
+</div>
+<div class="menu">
+  <a [style.margin-right]="'2em'" routerLink="/">
+    <nui-icon-button size="lg" [pushPull]="false" [active]="route==='/'" class="button" type="button">
+      <fa-icon [icon]="faMusic"></fa-icon>
+    </nui-icon-button>
+  </a>
+  <a [style.margin-right]="'2em'" routerLink="/playlist">
+    <nui-icon-button size="lg" [pushPull]="false" [active]="route.startsWith('/playlist')" class="button" type="button">
+      <fa-icon [icon]="faBars"></fa-icon>
+    </nui-icon-button>
+  </a>
+</div>
 <nui-error txt="Information test" [type]="errors[0].type" [display]="errors[0].display"
            *ngIf="errors[0].active" (close)="errors[0].active = false">
 </nui-error>

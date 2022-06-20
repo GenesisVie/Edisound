@@ -1,3 +1,5 @@
+@import "node_modules/neumorphy-ui/assets/scss/variables";
+@import "node_modules/neumorphy-ui/assets/scss/styles";
 
 :host {
   width: 100%;
@@ -7,10 +9,19 @@
   align-items: center;
   margin: 0;
   padding: 0 0 3em 0;
-  background: radial-gradient(circle at center top, #3c3837 0%, #2e2b2a 50%, #211f1e 85%);
 }
 
 .modal-displayed {
   overflow: hidden;
   filter: blur(3px) brightness(80%);
+}
+
+.menu{
+  position: fixed;
+  bottom: 0;
+  background: $bg-color;
+  width: -webkit-fill-available;
+  display: flex;
+  justify-content: center;
+  padding: 0.4rem 0;
 }
