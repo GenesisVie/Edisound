@@ -1,0 +1,6 @@
+<nui-list>
+  <app-back></app-back>
+  <nui-list-item *ngFor="let song of songs">
+    <app-song-item-add [song]="song" [playlist]="playlist">  </app-song-item-add>
+  </nui-list-item>
+</nui-list>

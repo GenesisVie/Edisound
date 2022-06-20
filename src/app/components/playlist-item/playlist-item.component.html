@@ -1,0 +1,6 @@
+<nui-row>
+    <nui-card display="item" [title]="playlist.name" color="raisin" borderRadius="10" elevation="md"
+              padding="sm" width="20em" align="center" justify="left" sense="row"
+              [itemImage]="playlist.songs[0].cover" (swipeleft)="setWaitingList(playlist)" (swiperight)="goToListSongs(playlist)">
+    </nui-card>
+</nui-row>

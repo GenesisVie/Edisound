@@ -1,21 +1,21 @@
-import {Component, ViewChild} from '@angular/core';
-import {Music} from "../interface/music";
-import {AudioService} from "../services/audio.service";
-import {WaitingListService} from "../services/waiting-list.service";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {Music} from "../../interface/music";
+import {AudioService} from "../../services/audio.service";
+import {WaitingListService} from "../../services/waiting-list.service";
 import {Observable} from "rxjs";
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faPause } from '@fortawesome/free-solid-svg-icons';
 import { faForward } from '@fortawesome/free-solid-svg-icons';
 import { faBackward } from '@fortawesome/free-solid-svg-icons';
-import {RotationServiceService} from "../services/rotation-service.service";
-import {VinylComponent} from "../vinyl/vinyl.component";
+import {RotationServiceService} from "../../services/rotation-service.service";
+import {VinylComponent} from "../../components/vinyl/vinyl.component";
 
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.scss']
 })
-export class PlayerComponent {
+export class PlayerComponent implements OnInit{
   songs: Music[] = []
   currentSong?: Music;
   status: Observable<string>;
@@ -33,12 +33,10 @@ export class PlayerComponent {
   }
 
   ngOnInit(){
-    
     this.wListService.wList.subscribe(songs => {
       this.songs = songs;
       this.wListService.currentSongIndex.subscribe(i =>{
         this.currentSong = this.songs[i]
-        this.audioService.setAudioForInit(this.currentSong?.path)
       })
     });
 
@@ -54,6 +52,9 @@ export class PlayerComponent {
   }
 
   play() {
+    if (!this.playing && this.songs.length > 0) {
+      this.setAudio(this.songs[0])
+    }
     this.playing = true;
     this.rotationService.isPlay.next(true)
     this.audioService.playAudio()
@@ -82,9 +83,10 @@ export class PlayerComponent {
 
   next() {
     if (this.currentSong) {
-      this.currentSong = this.songs[this.songs.indexOf(this.currentSong)+1 <= this.songs.length ? this.songs.indexOf(this.currentSong)+1 : this.songs.length]
+      let songIndex = this.songs.indexOf(this.currentSong)+1 <= this.songs.length ? this.songs.indexOf(this.currentSong)+1 : this.songs.length
+      this.currentSong = this.songs[songIndex]
       this.setAudio(this.currentSong)
-      this.wListService.currentSongIndex.next(this.songs.indexOf(this.currentSong));
+      this.wListService.currentSongIndex.next(songIndex);
     }
   }
 

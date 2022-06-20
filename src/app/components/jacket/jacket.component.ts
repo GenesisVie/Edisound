@@ -1,6 +1,6 @@
 import { Component, OnInit, SimpleChange } from '@angular/core';
 import { ImageInterface } from 'neumorphy-ui';
-import { WaitingListService } from '../services/waiting-list.service';
+import { WaitingListService } from '../../services/waiting-list.service';
 
 @Component({
   selector: 'app-jacket',
