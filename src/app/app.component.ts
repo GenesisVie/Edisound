@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { WaitingListService } from './services/waiting-list.service';
+import {faMusic,faBars} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import { WaitingListService } from './services/waiting-list.service';
 })
 
 export class AppComponent implements OnInit {
+  faMusic=faMusic;
+  faBars=faBars;
   errors = [
     {
       display: 'modal-bottom' as const,
@@ -102,7 +105,7 @@ export class AppComponent implements OnInit {
   }
 
   constructor(private wList:WaitingListService) {
-    
+
   }
 
   ngOnInit(): void {

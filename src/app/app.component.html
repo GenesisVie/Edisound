@@ -14,7 +14,7 @@
       </nui-button>
     </div>
   </header>
-  
+
 </nui-main> -->
 <router-outlet></router-outlet>
 
@@ -24,4 +24,17 @@
 <nui-error txt="Erreur 404 : Veuillez réessayer plus tard" type="error" display="modal" *ngIf="errors[1].active"
            (close)="errors[1].active = false" [button1]="buttonPopup1" [button2]="buttonPopup2">
 </nui-error>
+
+<div class="menu">
+  <a [style.margin-right]="'2em'" routerLink="/">
+    <nui-icon-button size="lg" [pushPull]="false" class="button" type="button">
+      <fa-icon [icon]="faMusic"></fa-icon>
+    </nui-icon-button>
+  </a>
+  <a [style.margin-right]="'2em'" routerLink="/playlist">
+    <nui-icon-button size="lg" [pushPull]="false" class="button" type="button">
+      <fa-icon [icon]="faBars"></fa-icon>
+    </nui-icon-button>
+  </a>
+</div>
 

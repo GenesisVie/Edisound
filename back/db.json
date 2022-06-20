@@ -154,6 +154,10 @@
           "cover": "assets/covers/alpha.jpg"
         }
       ]
+    },
+    {
+      "name": "jj",
+      "id": 2
     }
   ]
 }
