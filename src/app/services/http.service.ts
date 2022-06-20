@@ -19,7 +19,7 @@ export class HttpService {
   }
 
   getSongById(id: number) {
-    return this.http.get(`${this.url}/song/${id}`)
+    return this.http.get<Music>(`${this.url}/song/${id}`)
   }
 
   getPlaylist() {

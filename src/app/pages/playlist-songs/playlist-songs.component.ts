@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {HttpService} from "../../services/http.service";
 import {Playlist} from "../../interface/playlist";
 import {Location} from "@angular/common";
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-playlist-songs',
@@ -12,21 +13,22 @@ import {Location} from "@angular/common";
 })
 export class PlaylistSongsComponent implements OnInit {
 
+  faPlus = faPlus
   playlistId: string = ""
   playlistName: string = ""
   @Input() songs : Music[] = []
   constructor(private route: ActivatedRoute, private httpService: HttpService, private location: Location) {
-    this.playlistId = this.route.snapshot.params['id']
-    httpService.getPlaylistById(this.playlistId).subscribe((playlist: Playlist) => {
-      this.playlistName = playlist.name
-      this.songs = playlist.songs
-    })
   }
 
   back() {
     this.location.back()
   }
   ngOnInit(): void {
+    this.playlistId = this.route.snapshot.params['id']
+    this.httpService.getPlaylistById(this.playlistId).subscribe((playlist: Playlist) => {
+      this.playlistName = playlist.name
+      this.songs = playlist.songs
+    })
   }
 
 }

@@ -10,7 +10,7 @@ import {Playlist} from "../../interface/playlist";
 export class PlaylistComponent implements OnInit {
   playlists: Playlist[] = []
 
-  constructor(private httpService: HttpService) {
+  constructor(private  httpService: HttpService) {
   }
 
   ngOnInit(): void {

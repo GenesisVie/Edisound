@@ -3,7 +3,9 @@
   <nui-title>{{playlistName}}</nui-title>
   <nui-row>
     <a [routerLink]="['/songs', playlistId]">
-      <nui-button [label]="'Ajouter une musique'"></nui-button>
+      <nui-icon-button >
+        <fa-icon [icon]="faPlus"></fa-icon>
+      </nui-icon-button>
     </a>
   </nui-row>
   <nui-list>

@@ -21,22 +21,17 @@ export class ListSongComponent implements OnInit {
   }
 
   constructor(private route: ActivatedRoute, private httpService: HttpService) {
-    httpService.getPlaylistById(this.route.snapshot.params['id']).subscribe(playlist => {
+  }
+
+  ngOnInit(): void {
+    this.httpService.getPlaylistById(this.route.snapshot.params['id']).subscribe(playlist => {
       this.playlist = playlist
       this.playlistSongs = playlist.songs
     })
-    httpService.getSongs().subscribe(songs => {
+    this.httpService.getSongs().subscribe(songs => {
       this.songs = songs
     })
   }
 
-  putSongInPlaylist(song: Music) {
-    this.playlistSongs.push(song)
-    this.httpService.putSongPlaylist(this.playlist, this.playlistSongs).subscribe(() => {
-    })
-  }
-
-  ngOnInit(): void {
-  }
 
 }

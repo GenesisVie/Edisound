@@ -1,10 +1,9 @@
 <nui-row>
   <nui-card *ngIf="playlist.hasOwnProperty('songs')" display="item" [title]="playlist.name" color="raisin" borderRadius="10"
             elevation="md" padding="sm" width="20em" align="center" justify="left" sense="row"
-            [itemImage]="playlist.songs[0].cover" [button1]="playBtn" [button2]="goToBtn">
+            [itemImage]="playlist.songs[0].cover" (swipeleft)="setWaitingList(playlist)" (swiperight)="goToListSongs(playlist)">
   </nui-card>
   <nui-card *ngIf="!playlist.hasOwnProperty('songs')" display="item" [title]="playlist.name" color="raisin" borderRadius="10"
-            elevation="md" padding="sm" width="20em" align="center" justify="left" sense="row" [button1]="playBtn"
-            [button2]="goToBtn">
+            elevation="md" padding="sm" width="20em" align="center" justify="left" sense="row" (swipeleft)="setWaitingList(playlist)" (swiperight)="goToListSongs(playlist)">
   </nui-card>
 </nui-row>

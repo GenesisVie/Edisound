@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Music} from "../../interface/music";
 import {AudioService} from "../../services/audio.service";
 import {WaitingListService} from "../../services/waiting-list.service";
@@ -15,7 +15,7 @@ import {VinylComponent} from "../../components/vinyl/vinyl.component";
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.scss']
 })
-export class PlayerComponent {
+export class PlayerComponent implements OnInit{
   songs: Music[] = []
   currentSong: Music|null = null;
   status: Observable<string>;
@@ -28,12 +28,9 @@ export class PlayerComponent {
   faBackward = faBackward;
   faForward = faForward;
 
-  constructor(private wListService: WaitingListService, private audioService: AudioService, private rotationService: RotationServiceService) {
 
-    this.wListService.wList.subscribe(songs => {
-      this.songs = songs;
-      console.log(songs)
-    });
+
+  constructor(private wListService: WaitingListService, private audioService: AudioService, private rotationService: RotationServiceService) {
 
     audioService.timeElapsed.asObservable().subscribe(time => {
        this.timeElapsed = time
@@ -46,6 +43,12 @@ export class PlayerComponent {
     })
     this.status = audioService.getPlayerStatus();
 
+  }
+
+  ngOnInit(): void {
+    this.wListService.wList.subscribe(songs => {
+      this.songs = songs;
+    });
   }
 
   play() {
