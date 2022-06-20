@@ -8,7 +8,7 @@ import {HttpService} from "../../services/http.service";
   templateUrl: './song-item-add.component.html',
   styleUrls: ['./song-item-add.component.scss']
 })
-export class SongItemAddComponent implements AfterViewInit {
+export class SongItemAddComponent implements OnInit {
 
   @Input() song: Music = {
     id: 0,
@@ -33,19 +33,11 @@ export class SongItemAddComponent implements AfterViewInit {
     alreadyInPlaylist: false
   }
 
-  btnAdd = {
-    'label': '+',
-    'active': this.songItem.alreadyInPlaylist,
-    'size': 'sm',
-    'action': () => {
-      this.putSongInPlaylist(this.song, this.playlist)
-    }
-  }
 
   constructor(private httpService: HttpService) {
   }
 
-  ngAfterViewInit(): void {
+  ngOnInit() {
     this.songItem = {
       id: this.song.id,
       title: this.song.title,
@@ -55,7 +47,24 @@ export class SongItemAddComponent implements AfterViewInit {
       alreadyInPlaylist: this.playlist.songs.some(e => e.title === this.song.title)
     }
 
+    const objectBtn = {
+      'label': '+',
+      'active': this.songItem.alreadyInPlaylist,
+      'size': 'sm',
+      'action': () => {
+        this.putSongInPlaylist(this.song, this.playlist)
+      }
+    }
+    this.btnAdd = objectBtn
+  }
 
+  btnAdd = {
+    'label': '+',
+    'active': this.songItem.alreadyInPlaylist,
+    'size': 'sm',
+    'action': () => {
+      this.putSongInPlaylist(this.song, this.playlist)
+    }
   }
 
   putSongInPlaylist(song: Music, playlist: Playlist) {
