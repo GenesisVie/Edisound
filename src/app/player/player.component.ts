@@ -17,7 +17,7 @@ import {VinylComponent} from "../vinyl/vinyl.component";
 })
 export class PlayerComponent {
   songs: Music[] = []
-  currentSong: Music|null = null;
+  currentSong?: Music;
   status: Observable<string>;
   playing: boolean = false;
   timeElapsed: string = "00:00"
@@ -29,22 +29,28 @@ export class PlayerComponent {
   faForward = faForward;
 
   constructor(private wListService: WaitingListService, private audioService: AudioService, private rotationService: RotationServiceService) {
+    this.status = this.audioService.getPlayerStatus();
+  }
 
+  ngOnInit(){
+    
     this.wListService.wList.subscribe(songs => {
       this.songs = songs;
+      this.wListService.currentSongIndex.subscribe(i =>{
+        this.currentSong = this.songs[i]
+        this.audioService.setAudioForInit(this.currentSong?.path)
+      })
     });
 
-    audioService.timeElapsed.asObservable().subscribe(time => {
+    this.audioService.timeElapsed.asObservable().subscribe(time => {
        this.timeElapsed = time
     })
-    audioService.timeRemaining.asObservable().subscribe(time => {
+    this.audioService.timeRemaining.asObservable().subscribe(time => {
       this.timeRemaining = time
     })
-    audioService.percentElapsed.asObservable().subscribe(percent => {
+    this.audioService.percentElapsed.asObservable().subscribe(percent => {
       this.percentRemaining = percent
     })
-    this.status = audioService.getPlayerStatus();
-
   }
 
   play() {
@@ -63,13 +69,14 @@ export class PlayerComponent {
     this.currentSong = song
     this.playing = true;
     this.rotationService.isPlay.next(true)
-    this.audioService.setAudio(this.currentSong.path)
+    this.audioService.setAudio(this.currentSong?.path)
   }
 
   previous() {
     if (this.currentSong) {
       this.currentSong = this.songs[this.songs.indexOf(this.currentSong)-1 >= 0 ? this.songs.indexOf(this.currentSong)-1 : 0]
       this.setAudio(this.currentSong)
+      this.wListService.currentSongIndex.next(this.songs.indexOf(this.currentSong));
     }
   }
 
@@ -77,6 +84,7 @@ export class PlayerComponent {
     if (this.currentSong) {
       this.currentSong = this.songs[this.songs.indexOf(this.currentSong)+1 <= this.songs.length ? this.songs.indexOf(this.currentSong)+1 : this.songs.length]
       this.setAudio(this.currentSong)
+      this.wListService.currentSongIndex.next(this.songs.indexOf(this.currentSong));
     }
   }
 

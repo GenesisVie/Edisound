@@ -64,7 +64,11 @@ export class AudioService {
 
   public setAudio(src: string): void {
     this.audio.src = src;
-    this.playAudio()
+    // this.playAudio()
+  }
+
+  public setAudioForInit(src:string):void{
+    this.audio.src = src;
   }
 
   public playAudio(): void {

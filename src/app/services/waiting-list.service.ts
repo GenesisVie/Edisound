@@ -9,7 +9,8 @@ import {HttpService} from "./http.service";
 export class WaitingListService {
 
   public wList = new BehaviorSubject<Music[]>([]);
-
+  public currentSongIndex = new BehaviorSubject<number>(0);
+  
   constructor(private http: HttpService){
   }
 

@@ -1,3 +1,3 @@
 <nui-row id="jackets">
-    <nui-carousel [images]="jacketPath"></nui-carousel>
+    <nui-carousel [images]="jacketPath" [actualIndex]="actualIndex" (changeIndex)="changeIndex($event)"></nui-carousel>
 </nui-row>
