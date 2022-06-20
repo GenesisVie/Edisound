@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Location} from "@angular/common";
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-back',
@@ -8,6 +9,7 @@ import {Location} from "@angular/common";
 })
 export class BackComponent implements OnInit {
 
+  faLeft = faArrowLeft;
   constructor(private  location: Location) { }
 
   ngOnInit(): void {
