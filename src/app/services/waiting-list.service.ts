@@ -11,10 +11,10 @@ export class WaitingListService {
 
   public wList = new BehaviorSubject<Music[]>([]);
   public currentSongIndex = new BehaviorSubject<number>(0);
-  
+
   constructor(private http: HttpService){
   }
-  
+
   public fullWaitinglist() {
     this.http.getSongs().subscribe(songs => {
       this.wList.next(songs);

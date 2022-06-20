@@ -8,9 +8,7 @@
             <p id="title">{{currentSong?.title}}</p>
           </div>
           <nui-row id="progressTrack">
-            <nui-slider [withTimeInfo]="true" [actual]="timeElapsed" [end]="timeRemaining"></nui-slider>
-            <!--            TODO: je veux ca en bas-la https://www.youtube.com/watch?v=cSqn-DVW7Oo-->
-            <!--            <nui-slider [withTimeInfo]="true" [actual]="timeElapsed" [end]="timeRemaining" [min]="0" [max]="100" [value]="percentRemaining"></nui-slider>-->
+            <nui-slider [withTimeInfo]="true" [actual]="timeElapsed" [end]="timeRemaining" [value]="percentRemaining" (changeValue)="changeValue($event)"></nui-slider>
           </nui-row>
         </nui-row>
       </div>

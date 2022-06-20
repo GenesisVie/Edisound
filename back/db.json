@@ -163,9 +163,52 @@
       ]
     },
     {
-      "name": "huhuh",
-      "songs": [],
-      "id": 2
+      "id": 2,
+      "name": "Sxaag",
+      "songs": [
+        {
+          "id": 17,
+          "title": "Philly flingo",
+          "author": "Alpha Wann",
+          "path": "assets/songs/philly-flingo-alpha-wann.mp3",
+          "cover": "assets/covers/alpha.jpg"
+        },
+        {
+          "id": 16,
+          "title": "DRILL FR 4 feat. Freeze Corleone",
+          "author": "GAZO",
+          "path": "assets/songs/GAZOxFreeze-Corleone-DRILL4.mp3",
+          "cover": "assets/covers/gazo.jpg"
+        },
+        {
+          "id": 16,
+          "title": "DRILL FR 4 feat. Freeze Corleone",
+          "author": "GAZO",
+          "path": "assets/songs/GAZOxFreeze-Corleone-DRILL4.mp3",
+          "cover": "assets/covers/gazo.jpg"
+        },
+        {
+          "id": 17,
+          "title": "Philly flingo",
+          "author": "Alpha Wann",
+          "path": "assets/songs/philly-flingo-alpha-wann.mp3",
+          "cover": "assets/covers/alpha.jpg"
+        },
+        {
+          "id": 18,
+          "title": "Freeze Rael",
+          "author": "Freeze Corleone",
+          "path": "assets/songs/Freeze-Corleone-Freeze-Rael.mp3",
+          "cover": "assets/covers/profchen.jpg"
+        },
+        {
+          "id": 19,
+          "title": "Madison",
+          "author": "Unknow",
+          "path": "assets/songs/Madison.mp3",
+          "cover": "assets/covers/madison.jpg"
+        }
+      ]
     }
   ]
 }
