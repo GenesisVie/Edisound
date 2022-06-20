@@ -14,14 +14,8 @@ export class WaitingListService {
   constructor(private http: HttpService){
   }
 
-  public setWaitingList(playlist: Playlist|null) {
-    if (playlist === null) {
-      this.http.getSongs().subscribe(songs => {
-        this.wList.next(songs);
-      })
-    }else{
+  public setPlaylistIntoWaitingList(playlist: Playlist) {
       this.wList.next([]);
       this.wList.next(playlist.songs);
-    }
   }
 }

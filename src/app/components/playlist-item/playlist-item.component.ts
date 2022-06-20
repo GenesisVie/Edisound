@@ -21,7 +21,7 @@ export class PlaylistItemComponent implements OnInit {
   }
 
   setWaitingList(playlist: Playlist):void {
-    this.waitingList.setWaitingList(playlist)
+    this.waitingList.setPlaylistIntoWaitingList(playlist)
     this.router.navigate([''], {relativeTo: this.route})
   }
 
