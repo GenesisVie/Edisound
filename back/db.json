@@ -152,19 +152,8 @@
           "author": "Alpha Wann",
           "path": "assets/songs/philly-flingo-alpha-wann.mp3",
           "cover": "assets/covers/alpha.jpg"
-        },
-        {
-          "id": 1,
-          "title": "Naruto Remix",
-          "author": "Prod. xDay",
-          "path": "assets/songs/naruto-remix.mp3",
-          "cover": "assets/covers/prodxday.jpg"
         }
       ]
-    },
-    {
-      "name": "jj",
-      "id": 2
     }
   ]
 }
