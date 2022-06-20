@@ -35,9 +35,6 @@ export class PlayerComponent implements OnInit{
   ngOnInit(){
     this.wListService.wList.subscribe(songs => {
       this.songs = songs;
-      this.wListService.currentSongIndex.subscribe(i =>{
-        this.currentSong = this.songs[i]
-      })
     });
 
     this.audioService.timeElapsed.asObservable().subscribe(time => {
@@ -52,7 +49,7 @@ export class PlayerComponent implements OnInit{
   }
 
   play() {
-    if (!this.playing && this.songs.length > 0) {
+    if (!this.playing && this.songs.length > 0 && !this.currentSong) {
       this.setAudio(this.songs[0])
     }
     this.playing = true;
