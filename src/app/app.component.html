@@ -1,30 +1,11 @@
-<!-- <nui-main [class]="getError()">
-  <header [style.margin]="'0.5em 0 0.3em'">
-    <nav>
-      <a [style.color]="'white'" [style.margin-right]="'2em'" routerLink="/">Home</a>
-      <a [style.color]="'white'" [style.margin-right]="'2em'" routerLink="/music">Music</a>
-      <a [style.color]="'white'" [style.margin-right]="'2em'" routerLink="/playlist">Playlist</a>
-      <a [style.color]="'white'" routerLink="/tests">Tests</a>
-    </nav>
-    <div style="display: flex;justify-content: center">
-      <nui-button [style.margin-right]="'1em'" [active]="true" size="sm" label="Erreur 1"
-                  (clic)="this.errors[1].active = true;">
-      </nui-button>
-      <nui-button [active]="true" size="sm" label="Erreur 2" (clic)="this.errors[0].active = true;">
-      </nui-button>
-    </div>
-  </header>
-
-</nui-main> -->
-<router-outlet></router-outlet>
-
-<nui-error txt="Information test" [type]="errors[0].type" [display]="errors[0].display"
-           *ngIf="errors[0].active" (close)="errors[0].active = false">
-</nui-error>
-<nui-error txt="Erreur 404 : Veuillez réessayer plus tard" type="error" display="modal" *ngIf="errors[1].active"
-           (close)="errors[1].active = false" [button1]="buttonPopup1" [button2]="buttonPopup2">
-</nui-error>
-
+<div [class]="getError()">
+  <!--<nui-button [style.margin-right]="'1em'" [active]="true" size="sm" label="Erreur 1"
+              (clic)="this.errors[1].active = true;">
+  </nui-button>
+  <nui-button [active]="true" size="sm" label="Erreur 2" (clic)="this.errors[0].active = true;">
+  </nui-button>-->
+  <router-outlet></router-outlet>
+</div>
 <div class="menu">
   <a [style.margin-right]="'2em'" routerLink="/">
     <nui-icon-button size="lg" [pushPull]="false" [active]="route==='/'" class="button" type="button">
@@ -37,4 +18,10 @@
     </nui-icon-button>
   </a>
 </div>
+<nui-error txt="Information test" [type]="errors[0].type" [display]="errors[0].display"
+           *ngIf="errors[0].active" (close)="errors[0].active = false">
+</nui-error>
+<nui-error txt="Erreur 404 : Veuillez réessayer plus tard" type="error" display="modal" *ngIf="errors[1].active"
+           (close)="errors[1].active = false" [button1]="buttonPopup1" [button2]="buttonPopup2">
+</nui-error>
 

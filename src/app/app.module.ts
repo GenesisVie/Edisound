@@ -48,7 +48,6 @@ import {SongItemAddComponent} from './components/song-item-add/song-item-add.com
     NeumorphyUIModule,
     FontAwesomeModule,
     AppRoutingModule,
-    NeumorphyUIModule,
     HttpClientModule,
     ReactiveFormsModule,
     HammerModule
