@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChange } from '@angular/core';
 import { ImageInterface } from 'neumorphy-ui';
 import { WaitingListService } from '../../services/waiting-list.service';
 
@@ -10,17 +10,25 @@ import { WaitingListService } from '../../services/waiting-list.service';
 export class JacketComponent implements OnInit {
 
   jacketPath: ImageInterface[] = []
+  actualIndex: number = 0;
   constructor(private wListService: WaitingListService) {
-    this.wListService.wList.subscribe(songs => {
-      songs.forEach(element => {
-        this.jacketPath.push({
-            src: element.path
-          }
-        )
-      });
-    });
-   }
+    
+  }
 
   ngOnInit(): void {
+    this.wListService.wList.subscribe(songs => {
+      this.jacketPath = songs.map((song)=>{
+        const image: ImageInterface = {
+          src:song.cover
+        }
+        return image;
+      }
+      )
+    });
+    this.wListService.currentSongIndex.subscribe(i => {this.actualIndex = i})
+  }
+
+  changeIndex(newIndex:number){
+      this.wListService.currentSongIndex.next(newIndex)
   }
 }

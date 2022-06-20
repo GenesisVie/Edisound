@@ -1,12 +1,11 @@
   <nui-row id="displayer">
     <nui-row id="vinyl">
-      <app-vinyl
-                 [cover]=" currentSong!==null ? 'url('+currentSong.cover+')': 'white'" ></app-vinyl>
-      <div *ngIf="currentSong !== null">
+      <app-vinyl [cover]="currentSong ? 'url('+currentSong?.cover+')': 'white'" ></app-vinyl>
+      <div>
         <nui-row class="content">
           <div id="musicTitle">
-            <p id="author">{{currentSong.author}}</p>
-            <p id="title">{{currentSong.title}}</p>
+            <p id="author">{{currentSong?.author}}</p>
+            <p id="title">{{currentSong?.title}}</p>
           </div>
           <nui-row id="progressTrack">
             <nui-slider [withTimeInfo]="true" [actual]="timeElapsed" [end]="timeRemaining"></nui-slider>
