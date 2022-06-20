@@ -1,4 +1,4 @@
 <nui-card display="item" [title]="song.title"  [subtitle]="song.author" color="raisin" borderRadius="10" elevation="md"
           padding="sm" width="20em" align="center" justify="left" sense="row"
-          [itemImage]="song.cover" [buttonItem]="btnAdd">
+          [itemImage]="song.cover" [buttonItem]="btnAdd" (action)="this.putSongInPlaylist(this.song, this.playlist)">
 </nui-card>

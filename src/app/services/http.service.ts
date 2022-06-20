@@ -33,6 +33,7 @@ export class HttpService {
   postPlaylist(name: string) {
     return this.http.post<string>(`${this.url}/playlist`, {
       "name": name,
+      "songs": []
     })
   }
 

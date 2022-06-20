@@ -51,9 +51,6 @@ export class SongItemAddComponent implements OnInit {
       'label': '+',
       'active': this.songItem.alreadyInPlaylist,
       'size': 'sm',
-      'action': () => {
-        this.putSongInPlaylist(this.song, this.playlist)
-      }
     }
     this.btnAdd = objectBtn
   }
@@ -62,9 +59,6 @@ export class SongItemAddComponent implements OnInit {
     'label': '+',
     'active': this.songItem.alreadyInPlaylist,
     'size': 'sm',
-    'action': () => {
-      this.putSongInPlaylist(this.song, this.playlist)
-    }
   }
 
   putSongInPlaylist(song: Music, playlist: Playlist) {

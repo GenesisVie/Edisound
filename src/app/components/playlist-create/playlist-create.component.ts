@@ -51,7 +51,6 @@ export class PlaylistCreateComponent implements OnInit {
 
     this.httpService.postPlaylist(this.namePlaylist).subscribe({
       next: (response) => {
-        console.log(response);
         this.callback.emit();
       },
       error: (error) => console.log(error),
