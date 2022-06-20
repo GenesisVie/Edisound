@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { WaitingListService } from './services/waiting-list.service';
-import {faMusic,faBars} from '@fortawesome/free-solid-svg-icons';
+import {WaitingListService} from './services/waiting-list.service';
+import {faMusic, faBars} from '@fortawesome/free-solid-svg-icons';
+import {NavigationEnd, Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,10 @@ import {faMusic,faBars} from '@fortawesome/free-solid-svg-icons';
 })
 
 export class AppComponent implements OnInit {
-  faMusic=faMusic;
-  faBars=faBars;
+  faMusic = faMusic;
+  faBars = faBars;
+  pushPull = false;
+  route = '';
   errors = [
     {
       display: 'modal-bottom' as const,
@@ -104,8 +107,12 @@ export class AppComponent implements OnInit {
     }
   }
 
-  constructor(private wList:WaitingListService) {
-
+  constructor(private wList: WaitingListService, private router: Router) {
+    router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.route = event.url;
+      }
+    });
   }
 
   ngOnInit(): void {

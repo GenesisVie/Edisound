@@ -152,8 +152,20 @@
           "author": "Alpha Wann",
           "path": "assets/songs/philly-flingo-alpha-wann.mp3",
           "cover": "assets/covers/alpha.jpg"
+        },
+        {
+          "id": 2,
+          "title": "Branché",
+          "author": "Prod. xDay",
+          "path": "assets/songs/branche-xday.mp3",
+          "cover": "assets/covers/prodxday.jpg"
         }
       ]
+    },
+    {
+      "name": "huhuh",
+      "songs": [],
+      "id": 2
     }
   ]
 }

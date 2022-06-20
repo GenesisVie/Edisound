@@ -27,12 +27,12 @@
 
 <div class="menu">
   <a [style.margin-right]="'2em'" routerLink="/">
-    <nui-icon-button size="lg" [pushPull]="false" class="button" type="button">
+    <nui-icon-button size="lg" [pushPull]="false" [active]="route==='/'" class="button" type="button">
       <fa-icon [icon]="faMusic"></fa-icon>
     </nui-icon-button>
   </a>
   <a [style.margin-right]="'2em'" routerLink="/playlist">
-    <nui-icon-button size="lg" [pushPull]="false" class="button" type="button">
+    <nui-icon-button size="lg" [pushPull]="false" [active]="route.startsWith('/playlist')" class="button" type="button">
       <fa-icon [icon]="faBars"></fa-icon>
     </nui-icon-button>
   </a>
