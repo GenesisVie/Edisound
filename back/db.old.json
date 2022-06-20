@@ -10,9 +10,9 @@
     {
       "id": 2,
       "title": "Branché",
-      "author": "Prod. xDay",
+      "author": "XDay",
       "path": "assets/songs/branche-xday.mp3",
-      "cover": "assets/covers/prodxday.jpg"
+      "cover": "assets/covers/pDay.jpg"
     },
     {
       "id": 3,
@@ -156,9 +156,9 @@
         {
           "id": 2,
           "title": "Branché",
-          "author": "Prod. xDay",
+          "author": "XDay",
           "path": "assets/songs/branche-xday.mp3",
-          "cover": "assets/covers/prodxday.jpg"
+          "cover": "assets/covers/pday.jpg"
         },
         {
           "id": 2,
