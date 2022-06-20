@@ -95,4 +95,8 @@ export class PlayerComponent implements OnInit{
       this.playing = status === "playing";
     })
   }
+
+  changeValue(value:number){
+    this.audioService.seekAudio(value);
+  }
 }
