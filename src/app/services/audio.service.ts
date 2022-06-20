@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {Observable, BehaviorSubject, interval} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
-})export class AudioService {
+})
+export class AudioService {
 
   public audio: HTMLAudioElement;
   public timeElapsed: BehaviorSubject<string> = new BehaviorSubject('00:00');
@@ -12,10 +13,13 @@ import { Observable, BehaviorSubject } from 'rxjs';
   public percentElapsed: BehaviorSubject<number> = new BehaviorSubject(0);
   public percentLoaded: BehaviorSubject<number> = new BehaviorSubject(0);
   public playerStatus: BehaviorSubject<string> = new BehaviorSubject('paused');
+  public currentTime: BehaviorSubject<number> = new BehaviorSubject(0);
+  interval = interval(10)
 
   constructor() {
     this.audio = new Audio();
     this.attachListeners();
+    this.setCurrentTime()
   }
 
   private attachListeners(): void {
@@ -26,7 +30,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
     this.audio.addEventListener('ended', this.setPlayerStatus, false);
   }
 
-  private calculateTime = (evt:any) => {
+  private calculateTime = (evt: any) => {
     let ct = this.audio.currentTime;
     let d = this.audio.duration;
     this.setTimeElapsed(ct);
@@ -34,7 +38,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
     this.setTimeRemaining(d, ct);
   }
 
-  private setPlayerStatus = (e:any) => {
+  private setPlayerStatus = (e: any) => {
     switch (e.type) {
       case 'playing':
         this.playerStatus.next('playing');
@@ -60,6 +64,11 @@ import { Observable, BehaviorSubject } from 'rxjs';
 
   public setAudio(src: string): void {
     this.audio.src = src;
+    // this.playAudio()
+  }
+
+  public setAudioForInit(src:string):void{
+    this.audio.src = src;
   }
 
   public playAudio(): void {
@@ -74,10 +83,20 @@ import { Observable, BehaviorSubject } from 'rxjs';
     this.audio.currentTime = position;
   }
 
+  public setCurrentTime(): void {
+    this.interval.subscribe(i => {
+      this.currentTime.next(this.audio.currentTime)
+    })
+  }
+
+  public getCurrentTime(): BehaviorSubject<number> {
+    return this.currentTime
+  }
+
   private setTimeElapsed(ct: number): void {
-    let seconds     = Math.floor(ct % 60),
+    let seconds = Math.floor(ct % 60),
       displaySecs = (seconds < 10) ? '0' + seconds : seconds,
-      minutes     = Math.floor((ct / 60) % 60),
+      minutes = Math.floor((ct / 60) % 60),
       displayMins = (minutes < 10) ? '0' + minutes : minutes;
 
     this.timeElapsed.next(displayMins + ':' + displaySecs);
@@ -102,7 +121,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
   }
 
   private setPercentElapsed(d: number, ct: number): void {
-    this.percentElapsed.next(( Math.floor(( 100 / d ) * ct )) || 0 );
+    this.percentElapsed.next((Math.floor((100 / d) * ct)) || 0);
   }
 
   public getPercentElapsed(): Observable<number> {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Music } from '../interface/music';
-import {HttpService} from "../services/http.service";
+import {HttpService} from "./http.service";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,8 @@ import {HttpService} from "../services/http.service";
 export class WaitingListService {
 
   public wList = new BehaviorSubject<Music[]>([]);
-
+  public currentSongIndex = new BehaviorSubject<number>(0);
+  
   constructor(private http: HttpService){
   }
 
