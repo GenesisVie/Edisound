@@ -151,9 +151,37 @@
           "title": "Philly flingo",
           "author": "Alpha Wann",
           "path": "assets/songs/philly-flingo-alpha-wann.mp3",
-          "cover":  "assets/covers/alpha.jpg"
+          "cover": "assets/covers/alpha.jpg"
         }
       ]
+    },
+    {
+      "name": "v",
+      "id": 2
+    },
+    {
+      "name": "fef",
+      "id": 3
+    },
+    {
+      "name": "dd",
+      "id": 4
+    },
+    {
+      "name": "n",
+      "id": 5
+    },
+    {
+      "name": "dz",
+      "id": 6
+    },
+    {
+      "name": "zzz",
+      "id": 7
+    },
+    {
+      "name": "zz",
+      "id": 8
     }
   ]
 }

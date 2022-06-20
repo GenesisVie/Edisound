@@ -1,0 +1,14 @@
+<nui-icon-button [pushPull]="false" (click)="onClick()" *ngIf="state">
+  <fa-icon [icon]="faPlus"></fa-icon>
+</nui-icon-button>
+
+<form *ngIf="!state" (focusout)="onFocusOut()" [formGroup]="playlistForm" (ngSubmit)="onSubmit()"
+      style="position: relative">
+  <input id="input" class="input-nui input-sm-nui" placeholder="Entrez le nom de la playlist..." type="text"
+         formControlName="namePlaylist">
+  <!--  <nui-input size="sm" placeholder="Entrez le nom de la playlist..." control="namePlaylist"></nui-input>-->
+  <nui-icon-button [pushPull]="false" class="button" type="submit">
+    <fa-icon [icon]="faCheck"></fa-icon>
+  </nui-icon-button>
+</form>
+

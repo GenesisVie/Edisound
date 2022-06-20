@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Music} from "../interface/music";
@@ -9,7 +9,9 @@ import {Playlist} from "../interface/playlist";
 })
 export class HttpService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
+
   private url = environment.url
 
   getSongs() {
@@ -26,6 +28,12 @@ export class HttpService {
 
   getPlaylistById(id: string) {
     return this.http.get<Playlist>(`${this.url}/playlist/${id}`)
+  }
+
+  postPlaylist(name: string) {
+    return this.http.post<string>(`${this.url}/playlist`, {
+      "name": name,
+    })
   }
 
   putSongPlaylist(playlist: Playlist, songs: Music[]) {
