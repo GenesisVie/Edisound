@@ -9,21 +9,18 @@ import { WaitingListService } from '../../services/waiting-list.service';
 })
 export class JacketComponent implements OnInit {
 
-  jacketPath:ImageInterface[] = []
+  jacketPath: ImageInterface[] = []
   constructor(private wListService: WaitingListService) {
-
     this.wListService.wList.subscribe(songs => {
       songs.forEach(element => {
         this.jacketPath.push({
             src: element.path
           }
         )
-
       });
     });
    }
 
   ngOnInit(): void {
   }
-
 }
