@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Playlist} from "../../interface/playlist";
-import {faPlus} from "@fortawesome/free-solid-svg-icons";
 import {WaitingListService} from "../../services/waiting-list.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import 'hammerjs'
 
 @Component({
   selector: 'app-playlist-item',
@@ -16,30 +16,12 @@ export class PlaylistItemComponent implements OnInit {
     name: "",
     songs: []
   }
-
-  playBtn = {
-    'label': 'Jouer',
-    'active': true,
-    'size': 'sm',
-    'action': () => {
-      this.setWaitingList()
-    }
-  }
-
-  goToBtn = {
-    'label': 'Voir',
-    'active': true,
-    'size': 'sm',
-    'action': () => {
-      this.goToListSongs(this.playlist)
-    }
-  }
   constructor(private waitingList: WaitingListService, public router: Router, public route: ActivatedRoute) {
 
   }
 
-  setWaitingList():void {
-    this.waitingList.setWaitingList(this.playlist)
+  setWaitingList(playlist: Playlist):void {
+    this.waitingList.setWaitingList(playlist)
     this.router.navigate([''], {relativeTo: this.route})
   }
 

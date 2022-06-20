@@ -10,7 +10,7 @@ import {MusicComponent} from './music/music.component';
 import {PagenotfoundComponent} from './pages/pagenotfound/pagenotfound.component';
 import {TestsComponent} from "./pages/tests/tests.component";
 import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule, HammerModule} from '@angular/platform-browser';
 import {NgxSplideModule} from 'ngx-splide';
 import {PlayerComponent} from './pages/player/player.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -44,7 +44,8 @@ import { BackComponent } from './components/back/back.component';
     FontAwesomeModule,
     AppRoutingModule,
     NeumorphyUIModule,
-    HttpClientModule
+    HttpClientModule,
+    HammerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
