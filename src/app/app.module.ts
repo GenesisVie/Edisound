@@ -12,6 +12,7 @@ import {PlaylistComponent} from './playlist/playlist.component';
 import {MusicComponent} from './music/music.component';
 import {PagenotfoundComponent} from './pagenotfound/pagenotfound.component';
 import {TestsComponent} from "./tests/tests.component";
+import { LoaderComponent } from './loader/loader.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {TestsComponent} from "./tests/tests.component";
     PlaylistComponent,
     MusicComponent,
     PagenotfoundComponent,
-    TestsComponent
+    TestsComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

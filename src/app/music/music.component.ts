@@ -7,6 +7,7 @@ import {HttpService} from "../http.service";
   styleUrls: ['./music.component.scss']
 })
 export class MusicComponent implements OnInit {
+  loader = true;
   musics: any;
   musicList = [
     {
@@ -42,9 +43,15 @@ export class MusicComponent implements OnInit {
     'label': '+',
     'active': false,
     'size': 'sm',
-    'action': function () {
-      console.log(this);
-    }
+    'action': this.test
+  }
+
+  togglePlaylist = (args: string) => {
+    console.log(args);
+  }
+
+  test() {
+    console.log(this);
   }
 
   constructor(private http: HttpService) {
@@ -54,8 +61,8 @@ export class MusicComponent implements OnInit {
     this.http.getSongs()
       .subscribe(
         data => {
-          console.log(data);
           this.musics = data;
+          this.loader = false;
         },
         error => console.error('Error: ', error));
   }
