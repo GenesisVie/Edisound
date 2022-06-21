@@ -28,31 +28,9 @@ export class SongItemAddComponent implements OnInit {
     id: 0,
     title: "",
     author: "",
-    path:"",
+    path: "",
     cover: "",
     alreadyInPlaylist: false
-  }
-
-
-  constructor(private httpService: HttpService) {
-  }
-
-  ngOnInit() {
-    this.songItem = {
-      id: this.song.id,
-      title: this.song.title,
-      author: this.song.author,
-      path: this.song.path,
-      cover: this.song.cover,
-      alreadyInPlaylist: this.playlist.songs.some(e => e.title === this.song.title)
-    }
-
-    const objectBtn = {
-      'label': '+',
-      'active': this.songItem.alreadyInPlaylist,
-      'size': 'sm',
-    }
-    this.btnAdd = objectBtn
   }
 
   btnAdd = {
@@ -68,4 +46,24 @@ export class SongItemAddComponent implements OnInit {
     })
   }
 
+  constructor(private httpService: HttpService) {
+  }
+
+  ngOnInit() {
+    this.songItem = {
+      id: this.song.id,
+      title: this.song.title,
+      author: this.song.author,
+      path: this.song.path,
+      cover: this.song.cover,
+      alreadyInPlaylist: this.playlist.songs.some(e => e.title === this.song.title)
+    }
+
+    const objectBtn = {
+      label: '+',
+      active: this.songItem.alreadyInPlaylist,
+      size: 'sm',
+    }
+    this.btnAdd = objectBtn
+  }
 }
