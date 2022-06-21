@@ -9,6 +9,7 @@ import {Playlist} from "../../interface/playlist";
 })
 export class PlaylistComponent implements OnInit {
   playlists: Playlist[] = []
+  loader = true;
 
   constructor(private  httpService: HttpService) {
   }
@@ -20,6 +21,7 @@ export class PlaylistComponent implements OnInit {
   reloadData() {
     this.httpService.getPlaylist().subscribe(playlist => {
       this.playlists = playlist
+      this.loader = false;
     })
   }
 

@@ -23,6 +23,7 @@ import {BackComponent} from './components/back/back.component';
 import {PlaylistCreateComponent} from './components/playlist-create/playlist-create.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {SongItemAddComponent} from './components/song-item-add/song-item-add.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {SongItemAddComponent} from './components/song-item-add/song-item-add.com
     ListSongComponent,
     BackComponent,
     PlaylistCreateComponent,
-    SongItemAddComponent
+    SongItemAddComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

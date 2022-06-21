@@ -11,7 +11,7 @@ import {Location} from "@angular/common";
   styleUrls: ['./list-song.component.scss']
 })
 export class ListSongComponent implements OnInit {
-
+  loader = true;
   songs: Music[]=[]
   playlistSongs: Music[]=[]
   playlist: Playlist = {
@@ -26,10 +26,12 @@ export class ListSongComponent implements OnInit {
   ngOnInit(): void {
     this.httpService.getPlaylistById(this.route.snapshot.params['id']).subscribe(playlist => {
       this.playlist = playlist
-      this.playlistSongs = playlist.songs
+      this.playlistSongs = playlist.songs;
+      this.loader = false;
     })
     this.httpService.getSongs().subscribe(songs => {
-      this.songs = songs
+      this.songs = songs;
+      this.loader = false;
     })
   }
 
