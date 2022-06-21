@@ -35,7 +35,14 @@ export class PlayerComponent implements OnInit{
   ngOnInit(){
     this.wListService.wList.subscribe(songs => {
       this.songs = songs;
+      this.setAudioForInit(this.songs[0])
     });
+
+    this.wListService.currentSongIndex.subscribe(i =>{
+      if(i != 0){
+        this.setAudio(this.songs[i])
+      }
+    })
 
     this.audioService.timeElapsed.asObservable().subscribe(time => {
        this.timeElapsed = time
@@ -70,20 +77,20 @@ export class PlayerComponent implements OnInit{
     this.audioService.setAudio(this.currentSong?.path)
   }
 
+  setAudioForInit(song: Music): void{
+    this.currentSong = song
+    this.audioService.setAudioForInit(this.currentSong?.path)
+  }
+
   previous() {
     if (this.currentSong) {
-      this.currentSong = this.songs[this.songs.indexOf(this.currentSong)-1 >= 0 ? this.songs.indexOf(this.currentSong)-1 : 0]
-      this.setAudio(this.currentSong)
-      this.wListService.currentSongIndex.next(this.songs.indexOf(this.currentSong));
+      this.wListService.currentSongIndex.next(this.songs.indexOf(this.currentSong)-1 >= 0 ? this.songs.indexOf(this.currentSong)-1 : 0);
     }
   }
 
   next() {
     if (this.currentSong) {
-      let songIndex = this.songs.indexOf(this.currentSong)+1 <= this.songs.length ? this.songs.indexOf(this.currentSong)+1 : this.songs.length
-      this.currentSong = this.songs[songIndex]
-      this.setAudio(this.currentSong)
-      this.wListService.currentSongIndex.next(songIndex);
+      this.wListService.currentSongIndex.next(this.songs.indexOf(this.currentSong)+1 <= this.songs.length ? this.songs.indexOf(this.currentSong)+1 : this.songs.length);
     }
   }
 

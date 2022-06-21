@@ -25,10 +25,14 @@ export class JacketComponent implements OnInit {
       }
       )
     });
-    this.wListService.currentSongIndex.subscribe(i => {this.actualIndex = i})
+    this.wListService.currentSongIndex.subscribe(i => {
+      this.actualIndex = i
+    })
   }
 
   changeIndex(newIndex:number){
-      this.wListService.currentSongIndex.next(newIndex)
+      if(newIndex != this.actualIndex){
+        this.wListService.currentSongIndex.next(newIndex)
+      }
   }
 }
