@@ -44,6 +44,7 @@ export class SongItemAddComponent implements OnInit {
     const playlistSongs = playlist.songs
     this.httpService.putSongPlaylist(playlist, playlistSongs).subscribe(() => {
     })
+    this.btnAdd.active = true
   }
 
   constructor(private httpService: HttpService) {
