@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../../services/http.service";
 import {Playlist} from "../../interface/playlist";
+import { faEraser } from '@fortawesome/free-solid-svg-icons';
+import {WaitingListService} from "../../services/waiting-list.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-playlist',
@@ -10,8 +13,9 @@ import {Playlist} from "../../interface/playlist";
 export class PlaylistComponent implements OnInit {
   playlists: Playlist[] = []
   loader = true;
+  faEraser = faEraser;
 
-  constructor(private  httpService: HttpService) {
+  constructor(private  httpService: HttpService, public waitingService: WaitingListService, public router: Router, public route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -25,4 +29,9 @@ export class PlaylistComponent implements OnInit {
     })
   }
 
+  allSong() {
+    this.waitingService.allSongIntoWaitingList()
+    this.router.navigate([''], {relativeTo: this.route})
+    this.loader = false;
+  }
 }

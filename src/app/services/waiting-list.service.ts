@@ -21,6 +21,13 @@ export class WaitingListService {
     })
   }
 
+  public allSongIntoWaitingList() {
+    this.wList.next([]);
+    this.http.getSongs().subscribe(songs => {
+      this.wList.next(songs);
+    })
+  }
+
   public setPlaylistIntoWaitingList(playlist: Playlist) {
       this.wList.next([]);
       this.wList.next(playlist.songs);
