@@ -4,7 +4,9 @@
   </nui-button>
   <nui-button [active]="true" size="sm" label="Erreur 2" (clic)="this.errors[0].active = true;">
   </nui-button>-->
-  <router-outlet></router-outlet>
+  <div style="margin-bottom: 4em">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 <div class="menu">
   <a routerLink="/">

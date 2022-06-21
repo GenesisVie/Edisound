@@ -28,11 +28,24 @@ export class SongItemAddComponent implements OnInit {
     id: 0,
     title: "",
     author: "",
-    path:"",
+    path: "",
     cover: "",
     alreadyInPlaylist: false
   }
 
+  btnAdd = {
+    'label': '+',
+    'active': this.songItem.alreadyInPlaylist,
+    'size': 'sm',
+  }
+
+  putSongInPlaylist(song: Music, playlist: Playlist) {
+    playlist.songs.push(song)
+    const playlistSongs = playlist.songs
+    this.httpService.putSongPlaylist(playlist, playlistSongs).subscribe(() => {
+    })
+    this.btnAdd.active = true
+  }
 
   constructor(private httpService: HttpService) {
   }
@@ -48,24 +61,10 @@ export class SongItemAddComponent implements OnInit {
     }
 
     const objectBtn = {
-      'label': '+',
-      'active': this.songItem.alreadyInPlaylist,
-      'size': 'sm',
+      label: '+',
+      active: this.songItem.alreadyInPlaylist,
+      size: 'sm',
     }
     this.btnAdd = objectBtn
   }
-
-  btnAdd = {
-    'label': '+',
-    'active': this.songItem.alreadyInPlaylist,
-    'size': 'sm',
-  }
-
-  putSongInPlaylist(song: Music, playlist: Playlist) {
-    playlist.songs.push(song)
-    const playlistSongs = playlist.songs
-    this.httpService.putSongPlaylist(playlist, playlistSongs).subscribe(() => {
-    })
-  }
-
 }
